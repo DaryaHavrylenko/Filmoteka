@@ -19,7 +19,6 @@ a {
     text-decoration: none;
 }
 .header {
-    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 500;
     padding-top: 40px;
@@ -90,7 +89,6 @@ a {
 .logo {
    
     display: flex;
-
     border: 0;
     padding: 0;
     background-color: inherit;
@@ -198,6 +196,10 @@ a {
     @media screen and (min-width: $tablet) {
         width: 336px;
     }
+         @media screen and (min-width: $desktop) {
+            width: 394px;
+         }
+        
 
     background-color: transparent;
     border: transparent;
@@ -226,10 +228,11 @@ a {
 
     @media screen and (min-width: $tablet) {
         right: 142px;
+
     }
 
     @media screen and (min-width: $desktop) {
-        right: 273px;
+        right: 330px;
     }
 
     padding: 0;
@@ -245,6 +248,7 @@ a {
         color: var(--accent-color);
     }
 }
+
 
 
 
