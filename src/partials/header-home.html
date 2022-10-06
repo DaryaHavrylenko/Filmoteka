@@ -1,1 +1,32 @@
-<header><h1>hello</h1></header>
+<header class="header header--home">
+  <div class="header-container">
+    <a class="logo" href="./index.html">
+      <svg class="logo__icon" width="20" height="20">
+        <use href="./images/sprite-header.svg#logo"></use>
+      </svg>
+      <span class="logo__text">Filmoteka</span>
+    </a>
+    <ul class="navigation">
+      <li class="navigatioon__item">
+        <!-- <button class="navigation__btn navigation__btn--current">home</button> -->
+        <a class="navigation__btn navigation__btn--current" href="./index.html"
+          >home</a
+        >
+      </li>
+      <li class="navigatioon__item">
+        <!-- <button class="navigation__btn">my library</button> -->
+        <a class="navigation__btn" href="./index.html">my library</a>
+      </li>
+    </ul>
+    <div class="search-container">
+      <form class="search__form">
+        <input type="text" placeholder="Movie search" class="search__field" />
+        <button type="submit" class="search__btn">
+          <svg class="search__icon" width="12" height="12">
+            <use href="./images/sprite-header.svg#search"></use>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</header>
