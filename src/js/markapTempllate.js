@@ -6,7 +6,7 @@ export default function renderMarkupMovieCard(data) {
   const markup = results
     .map(
       ({ id, poster_path, genre_ids, vote_average, title, release_date }) =>
-        `<li class="movie-card__item" data-id="${id}">
+        `<li class="gallery__item" data-id="${id}">
                 <div class="movie-card">
                  ${
                    poster_path

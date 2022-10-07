@@ -1,22 +1,20 @@
 .container {
     margin-left: auto;
     margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 10px;
 
     width: 100%;
+    min-height: 60vh;
 
     @include mq(tablet) {
         width: 768px;
 
-        padding-left: 32px;
-        padding-right: 32px;
+        padding: 44px 16px;
     }
 
     @include mq(desktop) {
-        width: 1200px;
+        width: 1280px;
 
-        padding-left: 32px;
-        padding-right: 32px;
+        padding: 52px 24;
     }
 }
