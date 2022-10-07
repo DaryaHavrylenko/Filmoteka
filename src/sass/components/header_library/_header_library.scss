@@ -10,9 +10,9 @@
 // }
 
 .header--library {
-  padding-bottom: 62px;
-  padding-top: 44px;
-
+  padding-bottom: 60px;
+  padding-top: 40px;
+width: auto;
   @include mq(mobile) {
     background-image: linear-gradient(
         to right,
@@ -124,7 +124,7 @@
 .navigation {
   display: flex;
   align-items: flex-start;
-
+padding-top: 4px;
   @include mq(mobile-only) {
     margin-left: 110px;
   }
@@ -186,15 +186,19 @@
 
   @include mq(tablet) {
     margin: auto;
-    margin-top: 66px;
+    margin-top: 40px;
   }
 }
+
 .list-button__item {
   &:not(:last-child) {
     margin-right: 19.94px;
 
     @include mq(tablet) {
       margin-right: 32px;
+    }
+    @include mq(desktop) {
+        margin-right: 16px;
     }
   }
   @include mq(tablet) {
@@ -222,10 +226,14 @@
   font-family: inherit;
 
   @include mq(tablet) {
-    padding: 13px 46px;
     width: 152px;
+    padding: 13px 46px;
+    
   }
-
+@include mq(desktop) {
+  width: 148px;
+  padding: 13px 41px 11px 41px;
+}
   &:hover,
   &:focus {
     background-color: var(--accent-color);
