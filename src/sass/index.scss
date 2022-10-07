@@ -1,6 +1,8 @@
 @import './utils/variables';
 @import './utils/mixins';
 @import './utils/visually-hidden';
+@import '../sass/utils/theme';
+
 
 @import './base/common';
 @import './base/reset';
@@ -9,3 +11,5 @@
 @import './components/header_home/header_home';
 @import './components/header_library/header_library';
 @import './components/footer/footer';
+
+
