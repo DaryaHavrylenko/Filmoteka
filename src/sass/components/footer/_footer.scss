@@ -1,5 +1,5 @@
 .footer {
-  background-color: #F7F7F7;
+  background-color: var(--second-bgc);
 }
 
 .footer__holder {
@@ -41,12 +41,12 @@
 }
 
 .text {
-  font-family: "Roboto";
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 16px;
-  color: #545454;
+  line-height: 1.14;
+  color: var(--footer-text-color);
   margin: 0;
 }
 .footer__link {
@@ -60,9 +60,7 @@
 .footer__link-icon {
   margin-right: 10px;
   margin-left: 10px;
-  fill: #ff6b08;
-  /* justify-content: center;
-  align-items: center; */
+  fill: var(--main-accent-color);
   width: 14px;
   height: 12.75px;
 }
