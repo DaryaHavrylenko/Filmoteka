@@ -1,5 +1,5 @@
 export default function renderMarkupMovieCard(data) {
-  const gallery = document.querySelector('.movie-card__list');
+  const gallery = document.querySelector('.gallery');
 
   const { results } = data;
   console.log(results);
