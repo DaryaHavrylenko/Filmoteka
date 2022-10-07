@@ -20,7 +20,7 @@ const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=';
     console.log(moviesDataArray)
 
     const moviesDataforMarkupCreator = moviesDataArray.data.results
-        
+     localStorage.setItem("currentPopularMovies", JSON.stringify(moviesDataforMarkupCreator))
     
     return moviesDataforMarkupCreator
        } catch (error) {
