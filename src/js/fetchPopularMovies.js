@@ -2,14 +2,17 @@
 
 const axios = require('axios').default;
 
+
+
 const API_KEY = '301d018a3b09052968e9ce18b1793bab';
 const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=';
 
 
- export async function fetchPopularMovies() {
+ export async function fetchPopularMovies(pagePaginationNumber) {
     
        try {
-        const moviesDataArray = await axios.get(`${BASE_URL}${API_KEY}`)
+          const moviesDataArray = await axios.get(`${BASE_URL}${API_KEY}&page=${pagePaginationNumber}`)
+          console.log(`${BASE_URL}${API_KEY}&page=${pagePaginationNumber}`)
      if (moviesDataArray.status != 200) {
         return
      }
