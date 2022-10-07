@@ -1,0 +1,30 @@
+.gallery{
+    padding: 10px;
+
+    @include mq(tablet) {
+        padding: 45px 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    @include mq(desktop) {
+        padding: 50px 24px;
+
+    }
+}
+
+.gallery__item{
+    max-width: 100%;
+    margin: 10px;
+
+    @include mq(tablet) {
+        max-width: 336px;
+        margin: 15px;
+    }
+
+    @include mq(desktop) {
+        max-width: 395px;
+        margin: 8px;
+    }
+}
