@@ -1,1 +1,28 @@
-<header></header>
+<header class="header header--library">
+  <div class="header-container">
+    <a class="logo" href="./index.html">
+      <svg class="logo__icon" width="20" height="20">
+        <use href="./images/sprite-header.svg#logo"></use>
+      </svg>
+      <span class="logo__text">Filmoteka</span>
+    </a>
+    <ul class="navigation">
+      <li class="navigation__item">
+        <!-- <button class="navigation__btn navigation__btn--current">home</button> -->
+        <a class="navigation__btn" href="./index.html">home</a>
+      </li>
+      <li class="navigation__item">
+        <!-- <button class="navigation__btn">my library</button> -->
+        <a
+          class="navigation__btn navigation__btn--current"
+          href="./my_library.html"
+          >my library</a
+        >
+      </li>
+    </ul>
+    <div class="btn-container">
+      <button type="button" class="btn btn">Watched</button>
+      <button type="button" class="btn">queue</button>
+    </div>
+  </div>
+</header>
