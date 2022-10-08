@@ -39,9 +39,12 @@ function onInput(event) {
       }
       
       const { results } = data;
+
+      console.log(results);
       
       clearGalleryMarkup();
       renderMarkupMovieCard(results);
+      updateLocalStorage(results);
     })
     .catch(error => console.log(error));
 }
@@ -61,4 +64,8 @@ function getQuery() {
 
 function clearGalleryMarkup() {
   gallery.innerHTML = '';
+}
+
+function updateLocalStorage(results) {
+  localStorage.setItem('currentPopularMovies', JSON.stringify(results));
 }
