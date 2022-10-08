@@ -1,10 +1,12 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import debounce from 'lodash.debounce';
-const DEBOUNCE_DELAY = 300;
+import renderMarkupMovieCard from './markapTempllate';
+// // import debounce from 'lodash.debounce';
+// // const DEBOUNCE_DELAY = 300;
 
 const searchForm = document.querySelector('.search__form');
-// можно попробовать сделать по инпуту, тогда дебаунс использовать
 searchForm.addEventListener('submit', onInput);
+
+const gallery = document.querySelector('.gallery');
 
 const url = `https://api.themoviedb.org/3/search/movie?`;
 
@@ -19,25 +21,31 @@ const searchParams = new URLSearchParams({
 function onInput(event) {
   event.preventDefault();
 
-    const movieName = getQuery();
-    if (!movieName) { 
-        Notify.failure('Please enter the movie name');
-        return;
-    }
-      searchParams.set('query', movieName);
+  const movieName = getQuery();
+  if (!movieName) {
+    Notify.failure('Please enter the movie name');
+    return;
+  }
+  searchParams.set('query', movieName);
 
-    fetchMovie()
-        .then((data) => {
-            console.log(data);
-            if (data.total_results > 200) {
-                Notify.info('Please refine your search, too many matches found');
-            }
-            if (data.total_results === 0) {
-                Notify.failure('Search result is not successful. Please, try again');
-                searchForm.elements[0].value = '';
-            }
-        }
-        )
+  fetchMovie()
+    .then(data => {
+      if (data.total_results > 200) {
+        Notify.info('Please refine your search, too many matches found');
+      }
+      if (data.total_results === 0) {
+        Notify.failure('Search result is not successful. Please, try again');
+        searchForm.elements[0].value = '';
+      }
+      
+      const { results } = data;
+
+      console.log(results);
+      
+      clearGalleryMarkup();
+      renderMarkupMovieCard(results);
+      updateLocalStorage(results);
+    })
     .catch(error => console.log(error));
 }
 
@@ -54,4 +62,10 @@ function getQuery() {
   return searchForm.elements[0].value.trim();
 }
 
-export { data }
+function clearGalleryMarkup() {
+  gallery.innerHTML = '';
+}
+
+function updateLocalStorage(results) {
+  localStorage.setItem('currentPopularMovies', JSON.stringify(results));
+}

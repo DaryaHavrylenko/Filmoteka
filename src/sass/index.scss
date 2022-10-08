@@ -2,11 +2,16 @@
 @import './utils/mixins';
 @import './utils/visually-hidden';
 
+
+
 @import './base/common';
 @import './base/reset';
 @import './base/container';
 
 @import './components/header_home/header_home';
+@import './components/home-main/home-main.scss';
 @import './components/header_library/header_library';
+@import './utils/theme';
+
 @import './components/footer/footer';
 @import './components/footer/modal-team';
