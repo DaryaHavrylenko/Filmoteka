@@ -21,7 +21,7 @@ export default function renderMarkupMovieCard(data) {
                     <div class="movie-card__thumb">
                     <div class="movie-info-list">
                         <p class="info-item"> ${genre_ids}</p>
-
+<span>&#2404;</span>
               <p class="info-item-year">${release_date?.slice(0, 4)}</p>
               </div>
               <div class="second-thumb">
