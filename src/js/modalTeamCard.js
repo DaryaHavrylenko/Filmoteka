@@ -1,6 +1,7 @@
-let opModalTeam = document.getElementsByClassName("opModalTeam")[0];
-let closeModalTeam = document.getElementsByClassName("modalTeam__button")[0];
-let modalTeam = document.getElementsByClassName("modalTeam")[0];
+let opModalTeam = document.querySelector(".opModalTeam");
+let closeModalTeam = document.querySelector(".modalTeam__button");
+let modalTeam = document.querySelector(".modalTeam");
+
 
 opModalTeam .addEventListener("click", () => {
   modalTeam.classList.toggle("active");
