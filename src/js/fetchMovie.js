@@ -37,8 +37,11 @@ function onInput(event) {
         Notify.failure('Search result is not successful. Please, try again');
         searchForm.elements[0].value = '';
       }
+      
+      const { results } = data;
+      
       clearGalleryMarkup();
-      renderMarkupMovieCard(data);
+      renderMarkupMovieCard(results);
     })
     .catch(error => console.log(error));
 }
