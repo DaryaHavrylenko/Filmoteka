@@ -16,9 +16,12 @@ const BASE_URL = 'https://api.themoviedb.org/3/genre/movie/list?language=en-US&a
            if (genresDataArray.status != 200) {
                return
            }
-           console.log(genresDataArray.data.genres)
+        //    console.log(genresDataArray.data.genres)
         
-           localStorage.setItem("genresDataArray", JSON.stringify(genresDataArray));
+           localStorage.setItem(
+             'genresDataArray',
+             JSON.stringify(genresDataArray.data.genres)
+           );
         
 
         

@@ -4,8 +4,9 @@ import renderMarkupMovieCard from './markapTempllate';
 // // const DEBOUNCE_DELAY = 300;
 
 const searchForm = document.querySelector('.search__form');
-// можно попробовать сделать по инпуту, тогда дебаунс использовать
 searchForm.addEventListener('submit', onInput);
+
+const gallery = document.querySelector('.gallery');
 
 const url = `https://api.themoviedb.org/3/search/movie?`;
 
@@ -29,7 +30,6 @@ function onInput(event) {
 
   fetchMovie()
     .then(data => {
-      console.log(data);
       if (data.total_results > 200) {
         Notify.info('Please refine your search, too many matches found');
       }
@@ -37,7 +37,11 @@ function onInput(event) {
         Notify.failure('Search result is not successful. Please, try again');
         searchForm.elements[0].value = '';
       }
-      renderMarkupMovieCard(data);
+      
+      const { results } = data;
+      
+      clearGalleryMarkup();
+      renderMarkupMovieCard(results);
     })
     .catch(error => console.log(error));
 }
@@ -53,4 +57,8 @@ function fetchMovie() {
 
 function getQuery() {
   return searchForm.elements[0].value.trim();
+}
+
+function clearGalleryMarkup() {
+  gallery.innerHTML = '';
 }
