@@ -1,5 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import renderMarkupMovieCard from './markapTempllate';
+
 // // import debounce from 'lodash.debounce';
 // // const DEBOUNCE_DELAY = 300;
 
@@ -37,9 +38,9 @@ function onInput(event) {
         Notify.failure('Search result is not successful. Please, try again');
         searchForm.elements[0].value = '';
       }
-      
+
       const { results } = data;
-      
+
       clearGalleryMarkup();
       renderMarkupMovieCard(results);
     })
