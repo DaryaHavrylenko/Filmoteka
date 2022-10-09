@@ -6,7 +6,6 @@ export default function renderMarkupMovieCard(data) {
   const markup = data
     .map(
       ({ id, poster_path, genre_ids, vote_average, title, release_date }) => {
-        
         let gen = genre_ids.reduce((acc, item) => {
           genre.forEach(genreItem => {
             if (item === genreItem.id) {
@@ -16,8 +15,8 @@ export default function renderMarkupMovieCard(data) {
           return acc;
         }, []);
 
-        return `<li class="gallery__item" data-id="${id}">
-                <div class="movie-card">
+        return `<li class="gallery__item" >
+                <div class="movie-card" id="${id}">
                  ${
                    poster_path
                      ? `<img src="https://image.tmdb.org/t/p/w300${poster_path}"`
@@ -39,7 +38,8 @@ export default function renderMarkupMovieCard(data) {
                     </div>
                     </div>
                 </div>
-    </li> `;}
+    </li> `;
+      }
     )
     .join('');
   gallery.insertAdjacentHTML('beforeend', markup);

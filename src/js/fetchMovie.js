@@ -1,5 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import renderMarkupMovieCard from './markapTempllate';
+import findLi from './openModal';
 
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.min.css';
@@ -65,6 +66,7 @@ function onInput(event) {
       clearGalleryMarkup();
       renderMarkupMovieCard(results);
       updateLocalStorage(results);
+      findLi();
     })
     .catch(error => console.log(error));
 }
