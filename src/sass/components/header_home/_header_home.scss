@@ -18,8 +18,8 @@ $desktop: 1280px;
     display: flex;
     flex-wrap: wrap;
     // max-width: 320px;
-    // padding-left: 20px;
-    // padding-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     margin-right: auto;
     margin-left: auto;
 
@@ -121,10 +121,9 @@ background-image: linear-gradient(to right,
 .navigation {
     display: flex;
     align-items: flex-start;
-padding-top: 4px;
-    @include mq(mobile-only) {
-        margin-left: 110px;
-    }
+    margin-left: auto;
+    margin-bottom: 0;
+
 
         @include mq(tablet) {
         margin-left: 305px;
@@ -231,7 +230,7 @@ padding-top: 4px;
     }
 
         @include mq(desktop) {
-        right:400px;
+        right:385px;
     }
 
     padding: 0;
