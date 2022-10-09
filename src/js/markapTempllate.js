@@ -2,7 +2,7 @@ export default function renderMarkupMovieCard(data) {
   const gallery = document.querySelector('.gallery');
 
   const genre = JSON.parse(localStorage.getItem('genresDataArray'));
-
+  console.log(data);
   const markup = data
     .map(
       ({ id, poster_path, genre_ids, vote_average, title, release_date }) => {
@@ -15,7 +15,7 @@ export default function renderMarkupMovieCard(data) {
           return acc;
         }, []);
 
-        return `<li class="gallery__item" data-id="${id}">
+        return `<li class="gallery__item" id="${id}">
                 <div class="movie-card">
                  ${
                    poster_path
@@ -26,17 +26,19 @@ export default function renderMarkupMovieCard(data) {
                         alt="${title}"
                         loading="lazy"
                     />
-                    <h2 class="movie-info-title"> ${title}</h2>
+                   
+                    <h2 class="movie-info-title"> ${title} </h2>
                     <div class="movie-card__thumb">
                     <div class="movie-info-list">
                         <p class="info-item"> ${[...gen]}</p>
-<span>&#2404;</span>
-              <p class="info-item-year">${release_date?.slice(0, 4)}</p>
-              </div>
-              <div class="second-thumb">
-              <p class="info-item-rating"> ${vote_average.toFixed(1)}</p>
+                        <span>&#2404;</span>
+                  <p class="info-item-year">${release_date?.slice(0, 4)}</p>
+                   </div>
                     </div>
+                  <div class="second-thumb visually-hidden">
+                 <p class="info-item-rating"> ${vote_average.toFixed(1)}</p>
                     </div>
+                    
                 </div>
     </li> `;
       }

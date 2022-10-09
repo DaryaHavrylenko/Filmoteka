@@ -43,135 +43,134 @@ $desktop: 1280px;
         to right,
              rgba(47, 48, 58, 0.4),
              rgba(47, 48, 58, 0.4)),
-         url(../images/header-d-1x.jpg);
+         url(../images/header/mob/header_m_1x.jpg);
 
      @include mq(retina) {
          background-image: linear-gradient(
             to right,
                  rgba(47, 48, 58, 0.4),
                  rgba(47, 48, 58, 0.4)),
-             url(../images/header-d-1x.jpg);
+             url(../images/header/mob/header_m_@2x.jpg);
      
  }
 
  @include mq(tablet) {
      padding: 40px 32px 60px 32px;
+background-image: linear-gradient(to right,
+            rgba(47, 48, 58, 0.4),
+            rgba(47, 48, 58, 0.4)),
+        url(../images/header/tabl/header_tab_1x.jpg);
 
-     background-image: linear-gradient(to right,
-             rgba(47, 48, 58, 0.4),
-             rgba(47, 48, 58, 0.4)),
-         url(../images/header-m-1x.jpg);
-
-     @include mq(retina) {
-         background-image: linear-gradient(to right,
-                 rgba(47, 48, 58, 0.4),
-                 rgba(47, 48, 58, 0.4)),
-             url(../images/header-m-1x.jpg);
+    @include mq(retina) {
+        background-image: linear-gradient(to right,
+                rgba(47, 48, 58, 0.4),
+                rgba(47, 48, 58, 0.4)),
+            url(../images/header/tabl/header_tab_@2x.jpg);
      }
  }
 
  @include mq(desktop) {
-     background-image: linear-gradient(to right,
-             rgba(47, 48, 58, 0.4),
-             rgba(47, 48, 58, 0.4)),
-         url(../images/header-m-1x.jpg);
-
-     @include mq(retina) {
-         background-image: linear-gradient(to right,
-                 rgba(47, 48, 58, 0.4),
-                 rgba(47, 48, 58, 0.4)),
-             url(../images/header-m-1x.jpg);
+    background-image: linear-gradient(to right,
+                rgba(47, 48, 58, 0.4),
+                rgba(47, 48, 58, 0.4)),
+            url(../images/header/desc/header_d_1x.jpg);
+    
+        @include mq(retina) {
+            background-image: linear-gradient(to right,
+                    rgba(47, 48, 58, 0.4),
+                    rgba(47, 48, 58, 0.4)),
+                url(../images/header/desc/header_d_@2x.jpg);
      }
  }
 }
 
 
 
-// .logo {
+.logo {
    
-//     display: flex;
-//     border: 0;
-//     padding: 0;
-//     background-color: inherit;
-//     cursor: pointer;
-//     @include mq(tablet) {
-//         display: flex;
-//         align-items: center;
-//     }
-// }
+    display: flex;
+    border: 0;
+    padding: 0;
+    background-color: inherit;
+    cursor: pointer;
+    @include mq(tablet) {
+        display: flex;
+        align-items: center;
+    }
+}
 
-// .logo__icon {
-//     fill: var(--primary-text-color);
-//     height: 25px;
-//     width: 25px;
-//    }
+.logo__icon {
+    fill: var(--primary-text-color);
+    height: 25px;
+    width: 25px;
+   }
 
-// .logo__text {
-//     display: none;
+.logo__text {
+    display: none;
 
-//     @include mq(tablet) {
-//         display: inline;
-//         font-size: 30px;
-//         line-height: 35px;
-//         margin-left: 10px;
+    @include mq(tablet) {
+        display: inline;
+        font-size: 30px;
+        line-height: 35px;
+        margin-left: 10px;
 
-//         color: var(--primary-text-color);
-//     }
-// }
+        color: var(--primary-text-color);
+    }
+}
 
-// .navigation {
-//     display: flex;
-//     align-items: flex-start;
-// padding-top: 4px;
-//     @include mq(mobile-only) {
-//         margin-left: 110px;
-//     }
+.navigation {
+    display: flex;
+    align-items: flex-start;
+padding-top: 4px;
+    @include mq(mobile-only) {
+        margin-left: 110px;
+    }
 
-//         @include mq(tablet) {
-//         margin-left: 305px;
-//     }
+        @include mq(tablet) {
+        margin-left: 305px;
+    }
 
-//    @include mq(desktop) {
-//         margin-left: 565px;
-//     }
-// }
+   @include mq(desktop) {
+        margin-left: 565px;
+    }
+}
 
-// .navigation__item {
-//     &:not(:first-child) {
-//         margin-left: 40px;
-//     }
-// }
+.navigation__item {
+    &:not(:first-child) {
+        margin-left: 40px;
+    }
+}
 
-// .navigation__btn {
-//     position: relative;
-//     display: block;
-//     cursor: pointer;
-//     font-size: 12px;
-//     line-height: 14px;
-//     text-transform: uppercase;
-//     padding: 0;
-//     color: var(--primary-text-color);
-//     border: 0;
+.navigation__btn {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    padding: 0;
+    color: var(--primary-text-color);
+    border: 0;
 
-//     background-color: inherit;
+    background-color: inherit;
 
-//     &:hover {
-//         color: var(--accent-color);
-//     }
+    &:hover {
+        color: var(--accent-color);
+    }
 
-//     &--current {
-//         &::after {
-//             content: '';
-//             position: absolute;
-//             left: 0;
-//             bottom: -3px;
-//             display: block;
-//             width: 100%;
-//             height: 3px;
-//             background: var(--accent-color);
-//         }
-//     }
-// }
+    &--current {
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-color);
+        }
+    }
+}
 
 
 
@@ -232,7 +231,7 @@ $desktop: 1280px;
     }
 
         @include mq(desktop) {
-        right: 345px;
+        right:400px;
     }
 
     padding: 0;
