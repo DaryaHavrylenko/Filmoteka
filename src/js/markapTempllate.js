@@ -13,8 +13,9 @@ export default function renderMarkupMovieCard(data) {
         });
         return acc;
       }, []);
-      if (release_date === 0 || release_date === undefined) release_date = '';
       // if ([...gen] === '' || release_date === '')
+      if (release_date === 0 || release_date === undefined) release_date = '';
+
       return `<li class="gallery__item" >
                 <div class="movie-card" id="${id}">
                  ${
@@ -30,7 +31,7 @@ export default function renderMarkupMovieCard(data) {
                     <div class="movie-card__thumb">
                     <div class="movie-info-list">
                         <p class="info-item"> ${[...gen]}</p>
-                          <span class "info-item-slash"> &#2404; </span>
+                          <span class "info-item-slash">&#127902; </span>
               <p class="info-item-year"> ${release_date?.slice(0, 4)}</p>
               </div>
               
