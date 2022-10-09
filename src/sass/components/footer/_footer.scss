@@ -1,6 +1,7 @@
-// $mobile: 320px;
-// $tablet: 768px;
-// $desktop: 1024px;
+// *::before,
+// *::after {
+//   box-sizing: inherit;
+// }
 
 //==== Footer styles======// 
 .footer {
@@ -10,13 +11,13 @@
 .footer__holder {
   padding-top: 30px;
   padding-bottom: 28px;
-  color: #545454;
+  color: var(--footer-text-color);
   justify-content: center;
   text-align: center;
-  display: flex;
-    align-items: baseline;
+  
 
   @media screen and (max-width: 767px) {
+    
     margin: 0 auto;
     font-size: 14px;
     line-height: 1.18;
