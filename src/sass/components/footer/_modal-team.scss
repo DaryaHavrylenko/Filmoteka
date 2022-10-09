@@ -1,39 +1,64 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+// {
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+// }
+
+// ul {
+//   list-style-type: none;
+// }
+
+
+//*    Modal backdrop      //
+
+.backdrop__modal {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  // background: rgba(0, 0, 0, 0.8);
+  background-color: rgba(193, 191, 191, 0.8);
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 2;
+  transition: opacity 250ms, visibility 250ms;
 }
 
-body {
-  background-color: rgb(212, 212, 212);
+.backdrop__modal.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-ul {
-  list-style-type: none;
+
+//*    Modal body      //
+.modal__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  padding: 30px 10px;
 }
 
-.opModalTeam {
-  cursor: pointer;
+.modalTeam__about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
 }
-
-//*    Modal bcg      //
 
 .modalTeam {
-  z-index: 9999;
+  position: relative;
+  max-width: 340px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: absolute;
-  left: 50%;
-  top: -450px;
-  transform: translate(-50%, -50%);
   padding: 1rem;
   background-color: rgba(66, 66, 66, 0.9);
   border-radius: 25px;
   transition: all 1.2s;
-  filter: blur(2px);
-
-  max-width: 340px;
 
   @media screen and (min-width: $tablet) {
     max-width: 700px;
@@ -48,13 +73,13 @@ ul {
 .modalTeam__title {
   position: relative;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 25px;
   font-size: 45px;
   line-height: 1.17;
   letter-spacing: 0.03px;
   text-align: center;
-  color: #fff;
+  color: var(--button-text-color);
   cursor: pointer;
   &:hover,
   &:focus {
@@ -63,37 +88,27 @@ ul {
 }
 
 //*    Button      //
-.modalTeam__button {
-  font-size: 25px;
-  border: none;
+.modal__icon {
   position: absolute;
-  right: 5px;
-  top: 5px;
-  height: 42px;
+  right: 15px;
+  top: 15px;
+  font-size: 26px;
   background: none;
   text-transform: uppercase;
   padding: 4px 10px;
-  border-radius: 5px;
   outline: none;
   transition: all 0.3s;
   cursor: pointer;
   color: rgb(208, 201, 201);
+    border-radius: 12px;
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  
 }
+  }
 
-.modalTeam__button:hover {
-  border: none;
-  background-color: var(--accent-color);
-  color: #fff;
-  padding: 0 20px;
-}
-
-.active {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  filter: blur(0);
-}
-
+  //*    Modal cards      //
 .modalTeam__list {
   display: flex;
   flex-wrap: wrap;
@@ -101,6 +116,7 @@ ul {
 }
 
 .modalTeam__img {
+  cursor: pointer;
   border-radius: 25%;
   width: 70px;
   height: 70px;
@@ -125,10 +141,11 @@ ul {
 //*    Card style      //
 
 .modalTeam__style.fix {
+  
   margin: 10px;
-  // background: rgba(85, 74, 67, 0.9);
-  background-color: rgba(93, 87, 83, 0.9);
+  margin-bottom: 20px;
   border-radius: 20%;
+  background-color: rgba(93, 87, 83, 0.9);
   box-shadow: 0 0 22px rgb(125, 122, 121);
 }
 
@@ -145,11 +162,11 @@ ul {
 
 .modalTeam__position {
   font-size: 14px;
-  color:var(--accent-color);
+  color: var(--accent-color);
   margin: 2px 0 9px 0;
   cursor: pointer;
   &:hover,
   &:focus {
-    color: #e7e7e7;
+    color: var(--second-bgc);
   }
 }
