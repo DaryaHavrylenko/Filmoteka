@@ -1,43 +1,70 @@
+// *::before,
+// *::after {
+//   box-sizing: inherit;
+// }
+
+//==== Footer styles======// 
 .footer {
   background-color: var(--second-bgc);
 }
 
 .footer__holder {
-  height: 100px;
+  padding-top: 30px;
+  padding-bottom: 28px;
+  color: var(--footer-text-color);
+  justify-content: center;
+  text-align: center;
+  
 
+  @media screen and (max-width: 767px) {
+    
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.18;
+  }
   @media screen and (min-width: $tablet) {
-    height: 79px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    width: auto; 
+    font-size: 16px;
+    line-height: 1.14;
   }
+ 
+//  height: 100px;
 
-  @media screen and (min-width: $desktop) {
-    height: 77px;
+//   @media screen and (min-width: $tablet) {
+//     height: 79px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     text-align: center;
+//     padding: 0;
+//     margin: 0;
+//     width: auto;
+//   }
 
-  }
+//   @media screen and (min-width: $desktop) {
+//     height: 77px;
+//   }
 }
 
-.footer__sign {
+.footer__sign  {
+  
   padding-top: 28px;
   margin-bottom: 9.9px;
 
-
-   @include mq(tablet) {
+  @include mq(tablet) {
     margin-right: 7px;
     padding: 0px;
     margin-bottom: 0px;
-  } 
+  }
 }
 .footer__sign-text {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
 }
 
 .text {
@@ -49,18 +76,137 @@
   color: var(--footer-text-color);
   margin: 0;
 }
+
 .footer__link {
   display: flex;
   justify-content: center;
-  align-items: center;
   text-align: center;
+  align-items: center;
   padding: 0;
+  @media screen and (max-width: 767px) {
+    margin-top: 10px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-left: 3px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    position: relative;
+  }
 }
 
+.footer__sign-text{
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
+}
+
+//==== Heart decoration=====// 
 .footer__link-icon {
   margin-right: 10px;
   margin-left: 10px;
   fill: var(--main-accent-color);
+  width: 13px;
+  height: 11.75px;
+  position: absolute;
+  animation: a 1.5s infinite;
+}
+
+#heart {
+  position: relative;
+  width: 21px;
+  height: 20.75px;
+  animation: b 1.5s ease-in-out infinite;
+}
+
+#heart:before,
+#heart:after {
+  position: absolute;
+  content: '';
   width: 14px;
   height: 12.75px;
+  background: red;
+  -moz-border-radius: 50px 50px 0 0;
+  -webkit-border-radius: 50px;
+  border-radius: 50px 50px 0 0;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+
+#heart:after {
+  left: 0;
+  -moz-box-shadow: 3px -45px 5px 3px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 3px -45px 5px 3px rgba(255, 255, 255, 0.5);
+  box-shadow: 3px -45px 5px 3px rgba(255, 255, 255, 0.5);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -webkit-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+
+@keyframes a {
+  0% {
+    -moz-box-shadow: 0 0 65px 15px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 0 65px 15px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 65px 15px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    -moz-box-shadow: 0 0 65px 25px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 0 65px 25px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 65px 25px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    -moz-box-shadow: 0 0 65px 15px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 0 65px 15px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 65px 15px rgba(255, 255, 255, 0.5);
+  }
+}
+@keyframes b {
+  0% {
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  50% {
+    -moz-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+
+//==== GoIT link========// 
+.footer__link-social {
+  // position: absolute;
+  // display: flex;
+  // justify-content: center;
+  // text-align: center;
+  // align-items: center;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  text-decoration-line: underline;
+
+  &:hover,
+  &:focus {
+    color: #ff6b08;
+  }
 }

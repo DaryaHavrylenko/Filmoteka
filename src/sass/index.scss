@@ -1,6 +1,7 @@
 @import './utils/variables';
 @import './utils/mixins';
 @import './utils/visually-hidden';
+// @import './components/pagination/pagination'
 
 @import './base/common';
 @import './base/reset';
@@ -8,8 +9,10 @@
 
 @import './components/header_home/header_home';
 @import './components/home-main/home-main.scss';
-
+@import './components/home-main/modal-film';
+@import './components/main-library/main-library.scss';
 @import './components/header_library/header_library';
 @import './utils/theme';
 
 @import './components/footer/footer';
+@import './components/footer/modal-team';
