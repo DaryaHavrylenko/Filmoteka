@@ -30,11 +30,11 @@ export default function renderMarkupMovieCard(data) {
                     <div class="movie-card__thumb">
                     <div class="movie-info-list">
                         <p class="info-item"> ${[...gen]}</p>
-
+<span>&#2404;</span>
               <p class="info-item-year">${release_date?.slice(0, 4)}</p>
               </div>
               <div class="second-thumb">
-              <p class="info-item-rating"> ${vote_average}</p>
+              <p class="info-item-rating"> ${vote_average.toFixed(1)}</p>
                     </div>
                     </div>
                 </div>

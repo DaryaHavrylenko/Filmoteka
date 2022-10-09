@@ -2,7 +2,7 @@
 
 $mobile: 320px;
 $tablet: 768px;
-$desktop: 120px;
+$desktop: 1280px;
 
 .header {
     font-style: normal;
@@ -227,12 +227,12 @@ $desktop: 120px;
     right: 0;
 
     @include mq(tablet) {
-        right: 155px;
+        right: 165px;
 
     }
 
         @include mq(desktop) {
-        right: 350px;
+        right: 395px;
     }
 
     padding: 0;

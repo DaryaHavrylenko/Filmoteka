@@ -81,11 +81,11 @@ width: auto;
 
   @include mq(tablet) {
     justify-content: space-between;
-    max-width: 768px;
+    max-width: $tablet;
   }
 
   @include mq(desktop) {
-    max-width: 1200px;
+    max-width: $desktop;
   }
 }
 
