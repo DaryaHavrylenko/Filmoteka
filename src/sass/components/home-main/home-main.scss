@@ -24,13 +24,32 @@
 
     @include mq(desktop) {
         margin: 8px;
+        padding-bottom: 16px;
+    }
+
+    transition-property: box-shadow, scale;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 0px 35px 10px rgba(255,107,8,0.77);
+        scale: 1.1;
+        border-radius: 5px;
+        background-color: #d4d4d4;
+        // z-index: 10;
     }
 }
 
 .movie-card{
     font-weight: 500;
-    font-size: 20px;
+    font-size: 12px;
     line-height: 1.2;
+
+    @include mq(desktop) {
+        font-size: 20px;
+    }
 }
 
 .movie-card__poster {
@@ -54,7 +73,7 @@
     margin-bottom: 5px;
     font-size: inherit;
    
-
+    text-align: left;
     text-transform: uppercase;
     color: var(--title-color);
 
@@ -75,9 +94,9 @@
 }
 
 .second-thumb {
-    height: 20px;
+    height: 16px;
     display: inline-block;
-    padding: 3px 8px;
+    padding: 1px 6px;
     border-radius: 5px;
     font-weight: 500;
     font-size: 12px;
@@ -85,4 +104,9 @@
     text-align: center;
     background-color: var(--main-accent-color);
     color: var(--primary-text-color);
+
+    @include mq(desktop) {
+    padding: 3px 8px;
+    height: 20px;
+    }
 }
