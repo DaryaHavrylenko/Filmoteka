@@ -1,5 +1,6 @@
 .gallery {
     text-align: center;
+
     @include mq(tablet) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -13,10 +14,13 @@
 }
 
 .gallery__item {
-    display: inline-block;
     margin: 10px;
     margin-left: auto;
     margin-right: auto;
+    
+    @include mq(mobile-only) {
+        width: 280px;
+    }
 
     @include mq(tablet) {
         margin: 16px;
