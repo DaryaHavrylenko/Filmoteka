@@ -18,6 +18,7 @@ export default async function findLi() {
     // refs.modal.addEventListener('click', onClickBackdropModalClose);
 
     function onOpenModal(event) {
+      if(event.target.nodeName === "BUTTON") return
       try {
         let ar = event.currentTarget.id;
         const searchValue = JSON.parse(
