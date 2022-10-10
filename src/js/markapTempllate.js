@@ -6,7 +6,8 @@ export default function renderMarkupMovieCard(data) {
   const genre = JSON.parse(localStorage.getItem('genresDataArray'));
 
   const markup = data
-    .map(({ id, poster_path, genre_ids, title, release_date }) => {
+    .map(({ id, poster_path, genre_ids, title, release_date, vote_average }) => {
+      console.log(data)
       let gen = genre_ids.reduce((acc, item) => {
         genre.forEach(genreItem => {
           if (item === genreItem.id) {
@@ -42,9 +43,10 @@ export default function renderMarkupMovieCard(data) {
                     </div>
                     </div>
                 </div>
-    </li> `;
+    </li>`;
       }
-    ).join('');
+    )
+    .join('');
   gallery.insertAdjacentHTML('beforeend', markup);
 }
 
