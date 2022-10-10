@@ -83,19 +83,21 @@
 
 }
 
-.movie-card__thumb {
-    display: flex;
-    color: var(--main-accent-color);
-}
+// .movie-card__thumb {
+//     display: flex;
+//     color: var(--main-accent-color);
+// }
 
 .movie-info-list {
     display: flex;
-    // margin-right: 10px;
+    margin-top: 10px;
 }
 
 .info-item {
+    display: flex;
+        color: var(--main-accent-color);
+    }
     
-}
 
 .second-thumb {
     height: 16px;
