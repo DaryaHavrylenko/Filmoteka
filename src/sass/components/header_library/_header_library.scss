@@ -13,7 +13,7 @@
   padding-bottom: 60px;
   padding-top: 40px;
 width: auto;
-  @include mq(mobile) {
+
     background-image: linear-gradient(
         to right,
         rgba(47, 48, 58, 0.4),
@@ -28,7 +28,7 @@ width: auto;
           rgba(47, 48, 58, 0.4)
         ),
         url(../images/header-library/mob/mob_1@2x.jpg);
-    }
+    
   }
 
   @include mq(tablet) {
@@ -73,7 +73,7 @@ width: auto;
 .header-container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 320px;
+  // max-width: 320px;
   padding-left: 20px;
   padding-right: 20px;
   margin-right: auto;
@@ -81,11 +81,11 @@ width: auto;
 
   @include mq(tablet) {
     justify-content: space-between;
-    max-width: 768px;
+    max-width: $tablet;
   }
 
   @include mq(desktop) {
-    max-width: 1200px;
+    max-width: $desktop;
   }
 }
 
@@ -121,66 +121,66 @@ width: auto;
   }
 }
 
-.navigation {
-  display: flex;
-  align-items: flex-start;
-padding-top: 4px;
-  @include mq(mobile-only) {
-    margin-left: 110px;
-  }
+// .navigation {
+//   display: flex;
+//   align-items: flex-start;
+// padding-top: 4px;
+//   @include mq(mobile-only) {
+//     margin-left: 110px;
+//   }
 
-  @include mq(tablet) {
-    margin-left: 305px;
-  }
+//   @include mq(tablet) {
+//     margin-left: 305px;
+//   }
 
-  @include mq(desktop) {
-    margin-left: 565px;
-  }
-}
+//   @include mq(desktop) {
+//     margin-left: 565px;
+//   }
+// }
 
-.navigation__item {
-  &:not(:first-child) {
-    margin-left: 40px;
-  }
-}
+// .navigation__item {
+//   &:not(:first-child) {
+//     margin-left: 40px;
+//   }
+// }
 
-.navigation__btn {
-  position: relative;
-  display: block;
-  cursor: pointer;
-  font-size: 12px;
-  line-height: 14px;
-  text-transform: uppercase;
-  padding: 0;
-  color: var(--primary-text-color);
-  border: 0;
+// .navigation__btn {
+//   position: relative;
+//   display: block;
+//   cursor: pointer;
+//   font-size: 12px;
+//   line-height: 14px;
+//   text-transform: uppercase;
+//   padding: 0;
+//   color: var(--primary-text-color);
+//   border: 0;
 
-  background-color: inherit;
+//   background-color: inherit;
 
-  &:hover {
-    color: var(--accent-color);
-  }
+//   &:hover {
+//     color: var(--accent-color);
+//   }
 
-  &--current {
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      display: block;
-      width: 100%;
-      height: 3px;
-      background: var(--accent-color);
-    }
-  }
-}
+//   &--current {
+//     &::after {
+//       content: '';
+//       position: absolute;
+//       left: 0;
+//       bottom: -3px;
+//       display: block;
+//       width: 100%;
+//       height: 3px;
+//       background: var(--accent-color);
+//     }
+//   }
+// }
 
 
 .list-button {
   display: flex;
   flex-direction: row;
   justify-content: center;
-
+  margin: auto;
   margin-top: 60px;
   margin-bottom: 0;
 
