@@ -18,7 +18,7 @@ export default async function findLi() {
     // refs.modal.addEventListener('click', onClickBackdropModalClose);
 
     function onOpenModal(event) {
-      if(event.target.nodeName === "BUTTON") return
+      if (event.target.nodeName === 'BUTTON') return;
       try {
         let ar = event.currentTarget.id;
         const searchValue = JSON.parse(
@@ -35,10 +35,8 @@ export default async function findLi() {
 
       // refs.modal.classList.toggle('visually-hidden');
       // refs.document.body.style.overflow = 'hidden'; // refs.body.classList.toggle('modal-open');
-
-      // addWatchedBtnListener();
-      // addQueuedBtnListener();
     }
+
     function onClickBackdropModalClose(event) {
       if (event.target === event.currentTarget) {
         onCloseModal();
