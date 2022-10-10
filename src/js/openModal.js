@@ -1,3 +1,5 @@
+import addAndRemoveQueue from './add&removeQueue'; // Queue
+import checkPresenceMovieInQueue from './checkPresenceMovieInQueue'; // Queue
 export default async function findLi() {
   const listOfFilm = document.querySelector('.gallery');
   const condition = await (listOfFilm.children !== []);
@@ -21,8 +23,9 @@ export default async function findLi() {
         const searchValue = JSON.parse(
           localStorage.getItem('currentPopularMovies')
         ).find(item => item.id == ar);
-
         renderMarkupModal([searchValue]);
+        addAndRemoveQueue(searchValue); //Queue
+        checkPresenceMovieInQueue(); //Queue
       } catch (error) {
         console.log(error);
       }
@@ -35,7 +38,6 @@ export default async function findLi() {
       // addWatchedBtnListener();
       // addQueuedBtnListener();
     }
-
     function onClickBackdropModalClose(event) {
       if (event.target === event.currentTarget) {
         onCloseModal();
@@ -49,7 +51,6 @@ export default async function findLi() {
         onCloseModal();
       }
     }
-
     function renderMarkupModal(searchValue) {
       const genre = JSON.parse(localStorage.getItem('genresDataArray'));
       const markup = searchValue

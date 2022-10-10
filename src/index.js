@@ -5,6 +5,8 @@ import './js/modalTeamCard';
 import './js/markapTempllate';
 import './js/theme';
 import './js/openModal';
+// import { renderQueueMarkup } from './js/renderQueueMarkup';
+// import './js/renderQueueMarkup';
 
 fetchGenres();
 fetchPopularMovies();
