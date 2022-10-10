@@ -1,8 +1,45 @@
-// * {
-//   padding: 0;
-//   margin: 0;
-//   box-sizing: border-box;
-// }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.scroll-hidden {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  touch-action: none;
+  -ms-touch-action: none;
+}
+
+.modal-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+  background-color: #000000c7;
+
+  &.active {
+    opacity: 1;
+  
+    pointer-events: auto;
+    
+    & .film-card__modal {
+      filter: blur(0);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+
+  }
+}
+
 
 .opModal {
   z-index: 9999;
@@ -11,25 +48,30 @@
 }
 
 .film-card__modal {
-  z-index: 9999;
+  
   position: absolute;
-
   flex-direction: row;
   justify-content: center;
   overflow-y: auto;
   overflow-x: hidden;
 
   left: 50%;
-  top: -50%;
+  top: 50%;
   transform: translate(-50%, -50%);
   width: 275px;
   max-height: 95%;
   padding: 1rem;
   background-color: var(--primary-text-color);
 
+  .dark-theme & {background-color: #430d06;
+    background-image: linear-gradient(225deg, #430d06 0%, #0f0303 89%);
+    }
+
   border-radius: 6px;
   transition: all 1.2s;
   filter: blur(2px);
+
+  
 
   @media screen and (min-width: 480px) {
     width: 410px;
@@ -61,6 +103,9 @@
   transition: all 0.3s;
 
   cursor: pointer;
+
+  .dark-theme & {color:var(--second-bgc); border: 1px solid rgb(255, 255, 255);}
+  
 }
 
 .modal-film__btn:hover {
@@ -82,6 +127,8 @@
   right: 5px;
   top: 5px;
 
+  .dark-theme & {color:var(--second-bgc); border: none;}
+
   @media screen and (max-width: 767px) {
     right: 2px;
     top: 2px;
@@ -97,6 +144,8 @@
   color: var(--title-color);
 
   margin-bottom: 20px;
+
+  .dark-theme & {color: rgb(184, 184, 184)}
 }
 
 .film-add__btn {
@@ -147,6 +196,8 @@
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 5px;
+
+  .dark-theme & {color: var(--title-color)}
 }
 
 .separator {
@@ -175,6 +226,7 @@
   text-transform: uppercase;
 
   margin-bottom: 8px;
+  .dark-theme & {color:var(--second-bgc)};
 }
 
 .about-film__title {
@@ -189,6 +241,8 @@
   margin-top: 5px;
   margin-bottom: 20px;
 
+  .dark-theme & {color:var(--second-bgc);}
+
   @media screen and (max-width: 1024px) {
     font-size: 20px;
   }
@@ -198,6 +252,8 @@
   font-family: var(--primary-font);
   font-size: var(--primary-font-size);
   color: var(--title-color);
+
+  .dark-theme & {color:var(--second-bgc);}
 }
 
 .about-film__info {
@@ -209,9 +265,13 @@
   margin-bottom: 8px;
 }
 
-.active {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  filter: blur(0);
+.film-card__logo {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+
+
+.film-card__logo-icon {
+  border: 1px solid white;
 }
