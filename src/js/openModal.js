@@ -12,8 +12,8 @@ export default async function findLi() {
     };
 
     refs.cards.forEach(item => item.addEventListener('click', onOpenModal));
-    refs.closeModalBtn.addEventListener('click', onCloseModal);
-    refs.modal.addEventListener('click', onClickBackdropModalClose);
+    // refs.closeModalBtn.addEventListener('click', onCloseModal);
+    // refs.modal.addEventListener('click', onClickBackdropModalClose);
 
     function onOpenModal(event) {
       try {
@@ -122,7 +122,7 @@ export default async function findLi() {
         <li><button class="film-add__watched modal-film__btn" id=${id}>add to Watched</button></li>
         <li><button class="film-add__queue modal-film__btn" id=${id}>add to Queue</button></li>
       </ul>
-    </div>
+     
   </div>
   
 `;
@@ -136,14 +136,15 @@ export default async function findLi() {
       //   modal.classList.remove('active');
       // });
 
-      const modal = document.querySelector('.film-card__modal');
+      const modal = document.querySelector('.modal-backdrop');
       modal.classList.toggle('active');
-
+      document.body.classList.add('scroll-hidden');
       const closeModalBtn = document.querySelector('[data-modal-close]');
       closeModalBtn.addEventListener('click', onCloseModal);
 
       function onCloseModal() {
         window.removeEventListener('keydown', inKeyDownEscModalClose);
+        document.body.classList.remove('scroll-hidden');
         // refs.modal.classList.toggle('visually-hidden');
         // refs.document.body.style.overflow = ''; //refs.body.classList.toggle('modal-open');
 
