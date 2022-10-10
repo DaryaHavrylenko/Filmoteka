@@ -6,17 +6,17 @@ export default function renderMarkupMovieCard(data) {
   const genre = JSON.parse(localStorage.getItem('genresDataArray'));
 
   const markup = data
-    .map(
-      ({ id, poster_path, genre_ids, vote_average, title, release_date }) => {
-        let gen = genre_ids.reduce((acc, item) => {
-          genre.forEach(genreItem => {
-            if (item === genreItem.id) {
-              acc.push([genreItem.name]);
-            }
-          });
-          return acc;
-        }, []);
-
+    .map(({ id, poster_path, genre_ids, title, release_date }) => {
+      let gen = genre_ids.reduce((acc, item) => {
+        genre.forEach(genreItem => {
+          if (item === genreItem.id) {
+            acc.push([genreItem.name]);
+          }
+        });
+        return acc;
+      }, []);
+      // if ([...gen] === '' || release_date === '')
+      if (release_date === 0 || release_date === undefined) release_date = '';
         return `<li class="gallery__item" >
                
                 <div class="movie-card" id="${id}">
@@ -44,8 +44,7 @@ export default function renderMarkupMovieCard(data) {
                 </div>
     </li> `;
       }
-    )
-    .join('');
+    ).join('');
   gallery.insertAdjacentHTML('beforeend', markup);
 }
 

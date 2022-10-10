@@ -1,23 +1,9 @@
 
-$gradient: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+
 $mobile: 320px;
 $tablet: 768px;
-$desktop: 1200px;
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+$desktop: 1280px;
 
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-a {
-    text-decoration: none;
-}
 .header {
     font-style: normal;
     font-weight: 500;
@@ -31,57 +17,71 @@ a {
 .header-container {
     display: flex;
     flex-wrap: wrap;
-    max-width: $mobile;
+    // max-width: 320px;
     padding-left: 20px;
     padding-right: 20px;
     margin-right: auto;
     margin-left: auto;
 
-    @media screen and (min-width: $tablet) {
+@include mq(tablet) {
         justify-content: space-between;
         max-width: $tablet;
-        padding-left: 75px;
-        padding-right: 75px;
+      
     }
 
-    @media screen and (min-width: $desktop) {
+   @include mq(desktop) {
         max-width: $desktop;
     }
 }
 
 .header--home {
-    padding-bottom: 90px;// 
-    background-image: $gradient, url(../images/header-m-1x.jpg);
+    padding-bottom: 90px;
+    padding-top: 40px;
+        width: auto;
 
-    @media screen and(min-width:$mobile) {
-        background-image: $gradient, url(../images/header-d-1x.jpg);
+     background-image: linear-gradient(
+        to right,
+             rgba(47, 48, 58, 0.4),
+             rgba(47, 48, 58, 0.4)),
+         url(../images/header/mob/header_m_1x.jpg);
 
-        @media screen and (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: $gradient, url(../images/header-d-1x.jpg);
-        }
-    }
+     @include mq(retina) {
+         background-image: linear-gradient(
+            to right,
+                 rgba(47, 48, 58, 0.4),
+                 rgba(47, 48, 58, 0.4)),
+             url(../images/header/mob/header_m_@2x.jpg);
+     
+ }
 
-    @media screen and(min-width:$tablet) {
-        background-image: $gradient, url(../images/header-m-1x.jpg);
+ @include mq(tablet) {
+     padding: 40px 32px 60px 32px;
+background-image: linear-gradient(to right,
+            rgba(47, 48, 58, 0.4),
+            rgba(47, 48, 58, 0.4)),
+        url(../images/header/tabl/header_tab_1x.jpg);
 
-        @media screen and (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: $gradient, url(../images/header-m-1x.jpg);
-        }
-    }
+    @include mq(retina) {
+        background-image: linear-gradient(to right,
+                rgba(47, 48, 58, 0.4),
+                rgba(47, 48, 58, 0.4)),
+            url(../images/header/tabl/header_tab_@2x.jpg);
+     }
+ }
 
-    @media screen and(min-width:$desktop) {
-        background-image: $gradient, url(../images/header-m-1x.jpg);
-
-        @media screen and (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: $gradient, url(../images/header-d-1x.jpg);
-        }
-    }
+ @include mq(desktop) {
+    background-image: linear-gradient(to right,
+                rgba(47, 48, 58, 0.4),
+                rgba(47, 48, 58, 0.4)),
+            url(../images/header/desc/header_d_1x.jpg);
+    
+        @include mq(retina) {
+            background-image: linear-gradient(to right,
+                    rgba(47, 48, 58, 0.4),
+                    rgba(47, 48, 58, 0.4)),
+                url(../images/header/desc/header_d_@2x.jpg);
+     }
+ }
 }
 
 
@@ -93,7 +93,7 @@ a {
     padding: 0;
     background-color: inherit;
     cursor: pointer;
-    @media screen and (min-width: $tablet) {
+    @include mq(tablet) {
         display: flex;
         align-items: center;
     }
@@ -108,7 +108,7 @@ a {
 .logo__text {
     display: none;
 
-    @media screen and (min-width: $tablet) {
+    @include mq(tablet) {
         display: inline;
         font-size: 30px;
         line-height: 35px;
@@ -121,16 +121,15 @@ a {
 .navigation {
     display: flex;
     align-items: flex-start;
+    margin-left: auto;
+    margin-bottom: 0;
 
-    @media screen and (max-width: $tablet) {
-        margin-left: 110px;
-    }
 
-    @media screen and (min-width: $tablet) {
+        @include mq(tablet) {
         margin-left: 305px;
     }
 
-    @media screen and (min-width: $desktop) {
+   @include mq(desktop) {
         margin-left: 565px;
     }
 }
@@ -192,10 +191,10 @@ a {
     font-size: 14px;
     line-height: 1.14;
 
-    @media screen and (min-width: $tablet) {
+@include mq(tablet){
         width: 336px;
     }
-         @media screen and (min-width: $desktop) {
+                 @include mq(desktop) {
             width: 394px;
          }
         
@@ -225,13 +224,13 @@ a {
     top: 0;
     right: 0;
 
-    @media screen and (min-width: $tablet) {
-        right: 142px;
+    @include mq(tablet) {
+        right: 165px;
 
     }
 
-    @media screen and (min-width: $desktop) {
-        right: 330px;
+        @include mq(desktop) {
+        right:385px;
     }
 
     padding: 0;
