@@ -21,7 +21,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 2;
-  transition: opacity 250ms, visibility 250ms;
+  // transition: opacity 250ms, visibility 250ms;
 }
 
 .backdrop__modal.is-hidden {
