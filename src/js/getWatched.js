@@ -1,37 +1,32 @@
 import renderMarkupMovieCard from './markapTempllate';
-import findLi from './openModal';
+import findLi from './modalWatched';
 import openModal from './openModal';
 
-
 const refs = {
-    btnWatched:document.querySelector('.btn-header'),
-    ul:document.querySelector('.gallery'),
-}
+  btnWatched: document.querySelector('.btn-header'),
+  ul: document.querySelector('.gallery'),
+};
 
 refs.btnWatched.addEventListener('click', getWatched);
 
-function getWatched() {
-const fromLS = localStorage.getItem("watched");
+export default function getWatched() {
+  const fromLS = localStorage.getItem('watched');
 
-
-
-if(fromLS === "[]" || fromLS === null ){
+  if (fromLS === '[]' || fromLS === null) {
+    clear();
+    return refs.ul.insertAdjacentHTML(
+      'afterbegin',
+      '<li><h1 style=color:green> your list is empty </h1></li>'
+    );
+  }
   clear();
-  return refs.ul.insertAdjacentHTML("afterbegin", "<li><h1 style=color:green> you did not see nothing, you can could chouse new intresting film on main page</h1></li>");
-}
-clear();
-const film = JSON.parse(fromLS)
-renderMarkupMovieCard(film)
-// findLi();
-// openModal();
-console.log("after");
+  const arrayFilms = JSON.parse(fromLS);
+  renderMarkupMovieCard(arrayFilms);
+  findLi();
 }
 
 function clear() {
-    refs.ul.innerHTML = " "
+  refs.ul.innerHTML = ' ';
 }
 
-
-function modalWatched() {
-  
-}
+function modalWatched() {}
