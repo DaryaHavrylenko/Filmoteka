@@ -1,4 +1,3 @@
-
 import fetchTrailers from './fetchTrailer';
 
 export default function renderMarkupMovieCard(data) {
@@ -10,7 +9,6 @@ export default function renderMarkupMovieCard(data) {
 
     .map(
       ({ id, poster_path, genre_ids, title, release_date, vote_average }) => {
-        console.log(data);
         let gen = genre_ids.reduce((acc, item) => {
           genre.forEach(genreItem => {
             if (item === genreItem.id) {
@@ -19,7 +17,10 @@ export default function renderMarkupMovieCard(data) {
           });
           return acc;
         }, []);
-        // if ([...gen] === '' || release_date === '')
+        const genres = [...gen];
+        if (genres.length > 2) genres.splice(2);
+        if (genres.length === 2) genres.push(`Other`);
+        console.log(genres);
         if (release_date === 0 || release_date === undefined) release_date = '';
         return `<li class="gallery__item" >
                
@@ -45,15 +46,10 @@ export default function renderMarkupMovieCard(data) {
                     <h2 class="movie-info-title"> ${title}</h2>
                     <div class="movie-card__thumb">
                     <div class="movie-info-list">
-                        <p class="info-item"> ${[...gen]}</p>
-
+                        <p class="info-item"> ${genres}</p>
+<span class "info-item-slash">&#127902; </span>
               <p class="info-item-year">${release_date?.slice(0, 4)}</p>
               </div>
-              <div class="second-thumb">
-              <p class="info-item-rating"> ${vote_average}</p>
-                    </div>
-                    </div>
-                </div>
     </li>`;
       }
     )
@@ -84,6 +80,11 @@ async function onYoutubeClick(evt) {
       console.log('df', response[0].key);
       return;
     }
+    window.addEventListener('keydown', onKeyDownEscModalClose);
+    const body = document.querySelector('body');
+    body.style.overflow = 'hidden';
+    const backdrop = document.querySelector('.backdrop-trailer');
+    backdrop.addEventListener('click', onClickBackdrModalClose);
   }
 }
 
@@ -92,12 +93,29 @@ function createIframe(results) {
   <iframe class="iframe" fullscreen src="https://www.youtube.com/embed/${results}" frameborder="0"></iframe>
   </div></div>`;
   document.body.insertAdjacentHTML('beforeend', iframe);
-  document
-    .querySelector('.close-modal__trailer')
-    .addEventListener('click', closeModalYouTube);
+  const closeModalBtn = document.querySelector('.close-modal__trailer');
+  closeModalBtn.addEventListener('click', closeModalYouTube);
 }
 
 function closeModalYouTube() {
   document.querySelector('.backdrop-trailer').remove();
+  window.removeEventListener('keydown', onKeyDownEscModalClose);
+  body.style.overflow = '';
+  closeModalBtn.removeEventListener('click', closeModalYouTube);
+  backdrop.removeEventListener('click', onClickBackdrModalClose);
+  //  backdrop.innerHTML = '';
 }
 
+function onClickBackdrModalClose(event) {
+  if (event.target === event.currentTarget) {
+    closeModalYouTube();
+  }
+}
+
+function onKeyDownEscModalClose(event) {
+  const KEY_CODE_ESCAPE = 'Escape';
+
+  if (event.code === KEY_CODE_ESCAPE) {
+    closeModalYouTube();
+  }
+}
