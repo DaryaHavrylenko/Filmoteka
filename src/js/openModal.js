@@ -17,7 +17,7 @@ export default async function findLi() {
 
       renderMarkupModal(searchValue);
       addAndRemoveQueue(searchValue); //Queue
-      // checkPresenceMovieInQueue(); //Queue
+      checkPresenceMovieInQueue(); //Queue
       onOpenMovieCard(); // добавила Лера для Watched btn
     } catch (error) {
       console.log(error);

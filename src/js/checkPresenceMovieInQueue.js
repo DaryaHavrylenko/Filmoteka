@@ -9,7 +9,7 @@ export default function checkPresenceMovieInQueue() {
   parsedFilmsInQueue.map(film => {
     if (film.id === idBtn) {
       btnAddToQueueEl.textContent = 'Remove from Queue';
-      btnAddToQueueEl.style.backgroundColor = 'red';
+      btnAddToQueueEl.style.backgroundColor = '#FF6B01';
     }
   });
   // 1) Get масиву фільмів з локал сторедж Queue
