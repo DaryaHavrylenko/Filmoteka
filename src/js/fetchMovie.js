@@ -6,6 +6,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.min.css';
 // // import debounce from 'lodash.debounce';
 // // const DEBOUNCE_DELAY = 300;
+import delay, { visibleSpinner, hideSpinner } from './delay';
 
 let lubriary = [];
 
@@ -46,6 +47,8 @@ function onInput(event) {
   }
   searchParams.set('query', movieName);
   console.log(searchParams);
+  console.log('spinner start');
+
   fetchMovie()
     .then(data => {
       if (data.total_results > 200) {
@@ -68,7 +71,10 @@ function onInput(event) {
       updateLocalStorage(results);
       findLi();
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      console.log('spinner end');
+      console.log(error);
+    });
 }
 
 function getCurrentResult(e) {
@@ -104,13 +110,18 @@ function searchMovie() {
 
 function fetchMovie(paginationPage = 1) {
   searchParams.set('page', paginationPage);
+  visibleSpinner();
 
   return fetch(`${url}${searchParams}&&page=${paginationPage}`).then(
     response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
+      delay(500).then(() => {
+        console.log('spinner end');
+        hideSpinner();
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      });
     }
   );
 }
