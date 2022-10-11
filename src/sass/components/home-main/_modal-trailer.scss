@@ -22,7 +22,7 @@
 
 .iframe {
   width: 800px;
-  height: 400px;
+  height: 500px;
 }
 
 .close-modal__trailer {
@@ -33,6 +33,7 @@
   font-style: normal;
   font-weight: 500;
 
+  color: var(--second-bgc);
   height: 42px;
   background: none;
   font-size: 20px;
@@ -45,9 +46,9 @@
 
   cursor: pointer;
 
-  .dark-theme & {
-    color: var(--second-bgc);
-  }
+  // .dark-theme & {
+
+  // }
 
   &:hover {
     border: none;
