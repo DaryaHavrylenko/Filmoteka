@@ -20,9 +20,11 @@ export default function renderQueueMarkup() {
     if (!parsedFilmsInQueue || parsedFilmsInQueue.length === 0) {
       console.log('title');
       const title =
-        '<h2 class="title-queue" style="color: black" >Your queue is empty</h2>';
-      const gallery = document.querySelector('.gallery');
-      return (gallery.innerHTML = title);
+        '<h2 class="title-queue">Your queue is empty</h2>';
+      const container = document.querySelector('.container');
+      const section = document.querySelector('.gallery-section');
+      section.classList.add('library-plug');
+      return (container.innerHTML = title);
     }
     // рендер
     // renderQueue(parsedFilmsInQueue);

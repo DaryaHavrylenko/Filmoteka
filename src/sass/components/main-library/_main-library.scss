@@ -1,6 +1,37 @@
-.gallery--library {
-  background-color: aquamarine;
+.library-plug {
+  height: 59vh;
+  background-image: url("../images/header-library/plug.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 80px;
+  background-size: contain;
+
+  @include mq(tablet) {
+    height: 65vh;
+  }
 }
 
+.library-container {
+  text-align: center;
+}
 
+.title-queue {
+  display: inline-block;
+  font-size: 25px;
+  color: var(--title-color);
+  border-radius: 10%;
+  box-shadow: 0px 0px 19px 24px rgba(255,107,8,.7), inset 0px 0px 19px 24px rgba(255,107,8,.7);
 
+  @include mq(mobile-only) {
+    margin-top: 40px;
+  }
+
+  @include mq(tablet) {
+    font-size: 35px;
+  }
+
+  @include mq(desktop) {
+  font-size: 50px;
+
+  }
+}
