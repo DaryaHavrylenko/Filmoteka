@@ -1,5 +1,7 @@
 import addAndRemoveQueue from './add&removeQueue'; // Queue
 import checkPresenceMovieInQueue from './checkPresenceMovieInQueue'; // Queue
+// import onOpenMovieCard from './addToWatchedBtn'; // добавила Лера для Watched btn
+
 export default async function findLi() {
   const listOfFilm = document.querySelector('.gallery');
   const condition = await (listOfFilm.children !== []);
@@ -18,6 +20,7 @@ export default async function findLi() {
     // refs.modal.addEventListener('click', onClickBackdropModalClose);
 
     function onOpenModal(event) {
+      if (event.target.nodeName === 'BUTTON') return;
       try {
         let ar = event.currentTarget.id;
         const searchValue = JSON.parse(
@@ -26,6 +29,7 @@ export default async function findLi() {
         renderMarkupModal([searchValue]);
         addAndRemoveQueue(searchValue); //Queue
         checkPresenceMovieInQueue(); //Queue
+        // onOpenMovieCard(); // добавила Лера для Watched btn
       } catch (error) {
         console.log(error);
       }
@@ -34,10 +38,8 @@ export default async function findLi() {
 
       // refs.modal.classList.toggle('visually-hidden');
       // refs.document.body.style.overflow = 'hidden'; // refs.body.classList.toggle('modal-open');
-
-      // addWatchedBtnListener();
-      // addQueuedBtnListener();
     }
+
     function onClickBackdropModalClose(event) {
       if (event.target === event.currentTarget) {
         onCloseModal();

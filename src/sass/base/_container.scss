@@ -4,7 +4,8 @@
     padding: 10px;
 
     width: 100%;
-    min-height: 60vh;
+    // min-height: 60vh;
+    // min-height: 65vh;
 
     @include mq(tablet) {
         width: 768px;
@@ -15,6 +16,6 @@
     @include mq(desktop) {
         width: 1280px;
 
-        padding: 52px 24;
+        padding: 52px 24px;
     }
 }

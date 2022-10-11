@@ -14,6 +14,7 @@
 }
 
 .gallery__item {
+  position: relative;
   margin: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -31,20 +32,21 @@
     padding-bottom: 16px;
   }
 
-  transition-property: box-shadow,
-  scale;
-  transition-duration: 250ms;
+  transition-property: scale;
+  transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
 
   &:hover,
   &:focus {
-    box-shadow: 0px 0px 35px 10px rgba(255, 107, 8, 0.77);
-    scale: 1.1;
-    border-radius: 5px;
-    background-color: #d4d4d4;
+    scale: 1.03;
+    // background-color: #d4d4d4;
     // z-index: 10;
   }
+}
+
+.youtube-btn {
+  position: absolute;
+  z-index: 10;
 }
 
 .movie-card {
@@ -53,15 +55,59 @@
   line-height: 1.2;
 
   @include mq(desktop) {
-    font-size: 20px;
+    font-size: 15px;
   }
 }
 
-.movie-card__poster {
+.movie-card_poster-btn {
+  width: 60px;
+  height: 40px;
+
+  border-radius: 15px;
+
+  border: 0;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+
+  top: 10px;
+  left: 10px;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    -webkit-box-shadow: 10px 11px 11px -8px rgba(255, 0, 0, 1);
+    -moz-box-shadow: 10px 11px 11px -8px rgba(255, 0, 0, 1);
+    box-shadow: 10px 11px 11px -8px rgba(255, 0, 0, 1);
+  }
+}
+
+.movie-card__poster-container {
   margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.movie-card__poster {
   width: 280px;
   height: 400px;
   border-radius: 5px;
+
+  transition-property: scale;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 1s ease-out;
+
+  cursor: pointer;
+  &:hover {
+    scale: 1.15;
+
+    // transform: translateY(30px) ;
+  }
 
   @include mq(tablet) {
     width: 336px;
@@ -76,29 +122,32 @@
 
 .movie-info-title {
   margin-bottom: 5px;
-  font-size: inherit;
+  // font-size: inherit;
+  font-size: 12px;
 
   text-align: left;
   text-transform: uppercase;
   color: var(--title-color);
+  @media screen and (min-width: $desktop) {
+    font-size: 15px;
 
+  }
+
+  .dark-theme & {
+    color: var(--second-bgc);
+  }
 }
+
 
 .movie-card__thumb {
-    display: flex;
-    color: var(--main-accent-color);
-}
-
-.movie-info-list {
-  display: flex;
-  margin-top: 10px;
-}
-
-.info-item {
   display: flex;
   color: var(--main-accent-color);
 }
 
+.movie-info-list {
+  display: flex;
+  margin-right: 10px;
+}
 
 .second-thumb {
   height: 16px;

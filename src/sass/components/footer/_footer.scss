@@ -6,6 +6,9 @@
 //==== Footer styles======// 
 .footer {
   background-color: var(--second-bgc);
+  // position: fixed;
+  // bottom: 0;
+  // left: 50%;
 }
 
 .footer__holder {
@@ -14,6 +17,8 @@
   color: var(--footer-text-color);
   justify-content: center;
   text-align: center;
+  // align-items: center;
+  align-items: baseline;
   
 
   @media screen and (max-width: 767px) {
@@ -50,6 +55,8 @@
   
   padding-top: 28px;
   margin-bottom: 9.9px;
+  // display: flex;
+  // align-items: center;
 
   @include mq(tablet) {
     margin-right: 7px;
@@ -58,10 +65,10 @@
   }
 }
 .footer__sign-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
   @media screen and (min-width: $tablet) {
     display: flex;
   }
