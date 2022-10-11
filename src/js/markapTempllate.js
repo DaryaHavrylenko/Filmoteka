@@ -98,6 +98,7 @@ function createIframe(results) {
 }
 
 function closeModalYouTube() {
+  const body = document.querySelector('body');
   document.querySelector('.backdrop-trailer').remove();
   window.removeEventListener('keydown', onKeyDownEscModalClose);
   body.style.overflow = '';

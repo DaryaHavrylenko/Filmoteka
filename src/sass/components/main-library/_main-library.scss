@@ -10,6 +10,13 @@
     height: 65vh;
   }
 }
+.gallery--queue-empty {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    // color: #757575;
+  background-image: url('../images/queue-empty/empty.jpg');
+}
 
 .library-container {
   text-align: center;
