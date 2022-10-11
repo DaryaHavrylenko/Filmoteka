@@ -2,8 +2,16 @@ body {
     color: var(--primary-text-color);
     font-family: var(--primary-font), sans-serif;
 text-decoration: none;
+display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 
 }
+
+// main {
+//     min-height: 65vh;
+//   }
 
 .section {
     padding-top: 60px;

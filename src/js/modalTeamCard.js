@@ -14,7 +14,7 @@
 
 const refs = {
   openModalBtn: document.querySelector('[data-modal-open-contacts]'),
-  closeModalBtn: document.querySelector('[data-modal-close-contacts]'),
+    closeModalBtn: document.querySelector('[data-modal-close-contacts]'),
   backdrop: document.querySelector('.backdrop__modal'),
 };
 
@@ -28,6 +28,7 @@ refs.backdrop.addEventListener('click', onClickBackdrop);
 
 
 function onOpenModal() {
+  console.log("DONE");
   refs.backdrop.classList.remove('is-hidden');
   window.addEventListener('keydown', onPressESC);
 }
