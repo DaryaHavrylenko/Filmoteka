@@ -1,18 +1,17 @@
 import getArrQueueWithLocalStorage from './getArrQueueWithLocalStorage'; // Queue
 export default function addAndRemoveQueue(objMovies) {
-  // console.log('У queue', objMovies);
   let btnAddToQueueEl = document.querySelector('.film-add__queue');
   btnAddToQueueEl.addEventListener('click', onAddQueue);
-  // btnAddToQueueEl.style.backgroundColor = 'white';
+
   function onAddQueue(event) {
     event.preventDefault();
-    // console.log(event);
+
     const idCurrentFilm = Number(event.currentTarget.id);
 
     //0)Якщо фільм вже є у списку Черги
     if (btnAddToQueueEl.textContent === 'Remove from Queue') {
       btnAddToQueueEl.textContent = 'Add to Queue';
-      btnAddToQueueEl.style.backgroundColor = 'white';
+      btnAddToQueueEl.classList.remove('film-add__queue-active');
 
       //0.1) Дістаєм з локал сторедж список Черги
 
@@ -32,32 +31,15 @@ export default function addAndRemoveQueue(objMovies) {
 
       return;
     }
-    // console.log(idCurrentFilm);
+
     //Міняєм стан кнопки
     btnAddToQueueEl.textContent = 'Remove from Queue';
-    btnAddToQueueEl.style.backgroundColor = '#FF6B01';
+    btnAddToQueueEl.classList.add('film-add__queue-active');
 
-    // 1) Перевіряєм/дістаєм з локал сторедж Queue
-    //   movies from local storage
     const moviesFromLocalStorage = getArrQueueWithLocalStorage();
-    // // console.log(parsedFilmsInQueue);
-    // moviesFromLocalStorage?.map(film => {
-    //   //1.1)Перевіряєм чи поточний фільм id співпадає з id фільму з локал сторедж
-    //   // console.log(film.id);
-    //   if (film.id === idCurrentFilm) {
-    //     // console.log(film.id);
-    //     // console.log(currentFilm);
 
-    //     currentFilm = film;
-    //     // console.log(currentFilm);
-    //   }
-    //   return;
-    // });
     // 2.1) Добавляєм в локал сторедж Queue якщо там пусто
     if (!moviesFromLocalStorage) {
-      //якщо там пусто
-      console.log('В FilmsArrQueue пусто');
-
       try {
         const serializedState = JSON.stringify([objMovies]);
         localStorage.setItem('FilmsArrQueue', serializedState);
@@ -70,18 +52,12 @@ export default function addAndRemoveQueue(objMovies) {
     // якщо так виводимо alert з повідомленням
     if (moviesFromLocalStorage) {
       // якщо там вже є інформація
-
       let newArrQueue = [];
       let boolPresentFilm = false;
 
       moviesFromLocalStorage.map(film => {
         if (film.id === idCurrentFilm) {
           boolPresentFilm = true;
-
-          alert('Цей фільм вже є у списку');
-
-          // btnAddToQueueEl.textContent = 'Remove from Queue';
-          // btnAddToQueueEl.style.backgroundColor = 'red';
         }
         return;
       });
@@ -89,7 +65,6 @@ export default function addAndRemoveQueue(objMovies) {
       // якщо ні добавляєм в локал сторедж Queue
       if (!boolPresentFilm) {
         try {
-          // newArrQueue = [...moviesFromLocalStorage, objMovies];
           newArrQueue = [objMovies, ...moviesFromLocalStorage];
           const newArrQueueString = JSON.stringify(newArrQueue);
           localStorage.setItem('FilmsArrQueue', newArrQueueString);
@@ -102,16 +77,8 @@ export default function addAndRemoveQueue(objMovies) {
   //   =================================================================================
   //   ================================Додаткові функції================================
   //   =================================================================================
-  // 1) Get масиву фільмів у локал сторедж
-  // function getArrQueueWithLocalStorage() {
-  //   try {
-  //     const serializedState = localStorage.getItem('FilmsArrQueue');
-  //     return serializedState === null ? undefined : JSON.parse(serializedState);
-  //   } catch (error) {
-  //     console.error('Get state error: ', error.message);
-  //   }
-  // }
-  // 2) Set масиву фільмів у локал сторедж
+
+  // 1) Set масиву фільмів у локал сторедж
   function setArrQueueInLocalStorage(arr) {
     try {
       const serializedState = JSON.stringify(arr);

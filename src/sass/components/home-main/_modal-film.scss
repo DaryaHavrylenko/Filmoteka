@@ -161,6 +161,10 @@
   background-color: var(--accent-color);
 }
 
+.film-add__queue-active {
+  background-color: var(--accent-color);
+}
+
 .film-card__about {
   @media screen and (min-width: 767px) {
     margin-left: 15px;
