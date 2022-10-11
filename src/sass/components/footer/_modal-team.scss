@@ -8,7 +8,6 @@
 //   list-style-type: none;
 // }
 
-
 //*    Modal backdrop      //
 
 .backdrop__modal {
@@ -22,7 +21,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 2;
-  // transition: opacity 250ms, visibility 250ms;
+  transition: opacity 250ms, visibility 250ms;
 }
 
 .backdrop__modal.is-hidden {
@@ -30,7 +29,6 @@
   visibility: hidden;
   pointer-events: none;
 }
-
 
 //*    Modal body      //
 .modal__body {
@@ -100,15 +98,14 @@
   transition: all 0.3s;
   cursor: pointer;
   color: rgb(208, 201, 201);
-    border-radius: 12px;
+  border-radius: 12px;
   &:hover,
   &:focus {
     color: var(--accent-color);
-  
-}
   }
+}
 
-  //*    Modal backdrop      //
+//*    Modal backdrop      //
 .modalTeam__list {
   display: flex;
   flex-wrap: wrap;
@@ -141,27 +138,16 @@
 //*    Card style      //
 
 .modalTeam__style.fix {
-  
   margin: 10px;
   margin-bottom: 20px;
   border-radius: 20%;
   background-color: rgba(93, 87, 83, 0.9);
   box-shadow: 0 0 22px rgb(125, 122, 121);
-
-  transform: scale(1);
-  -webkit-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out;
-    
-  &:hover{
-      -webkit-transform: scale(1.3);
-      transform: scale(1.3);
-    }
 }
 
 //*    Name position style      //
 .modalTeam__caption {
   text-align: center;
-
 }
 
 .modalTeam__name {
