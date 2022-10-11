@@ -10,9 +10,10 @@
 // }
 
 .header--library {
-  padding-bottom: 60px;
-  padding-top: 40px;
-width: auto;
+  display: flex;
+  
+    padding-top: 40px;
+     width: auto;
 
     background-image: linear-gradient(
         to right,
@@ -70,56 +71,56 @@ width: auto;
   }
 }
 
-.header-container {
-  display: flex;
-  flex-wrap: wrap;
-  // max-width: 320px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-right: auto;
-  margin-left: auto;
+// .header-container {
+//   display: flex;
+//   flex-wrap: wrap;
+//   // max-width: 320px;
+//   padding-left: 20px;
+//   padding-right: 20px;
+//   margin-right: auto;
+//   margin-left: auto;
 
-  @include mq(tablet) {
-    justify-content: space-between;
-    max-width: $tablet;
-  }
+//   @include mq(tablet) {
+//     justify-content: space-between;
+//     max-width: $tablet;
+//   }
 
-  @include mq(desktop) {
-    max-width: $desktop;
-  }
-}
+//   @include mq(desktop) {
+//     max-width: $desktop;
+//   }
+// }
 
-.logo {
-  display: flex;
-  border: 0;
-  padding: 0;
-  background-color: inherit;
-  cursor: pointer;
+// .logo {
+//   display: flex;
+//   border: 0;
+//   padding: 0;
+//   background-color: inherit;
+//   cursor: pointer;
 
-  @include mq(tablet) {
-    display: flex;
-    align-items: center;
-  }
-}
+//   @include mq(tablet) {
+//     display: flex;
+//     align-items: center;
+//   }
+// }
 
-.logo__icon {
-  fill: var(--primary-text-color);
-  height: 25px;
-  width: 25px;
-}
+// .logo__icon {
+//   fill: var(--primary-text-color);
+//   height: 25px;
+//   width: 25px;
+// }
 
-.logo__text {
-  display: none;
+// .logo__text {
+//   display: none;
 
-  @include mq(tablet) {
-    display: inline;
-    font-size: 30px;
-    line-height: 35px;
-    margin-left: 10px;
+//   @include mq(tablet) {
+//     display: inline;
+//     font-size: 30px;
+//     line-height: 35px;
+//     margin-left: 10px;
 
-    color: var(--primary-text-color);
-  }
-}
+//     color: var(--primary-text-color);
+//   }
+// }
 
 // .navigation {
 //   display: flex;
@@ -181,13 +182,14 @@ width: auto;
   flex-direction: row;
   justify-content: center;
   margin: auto;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-bottom: 0;
+  width: 100%;
 
-  @include mq(tablet) {
-    margin: auto;
-    margin-top: 40px;
-  }
+  // @include mq(tablet) {
+  //   margin: auto;
+  //   margin-top: 40px;
+  // }
 }
 
 .list-button__item {
