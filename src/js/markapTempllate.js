@@ -1,4 +1,3 @@
-
 import fetchTrailers from './fetchTrailer';
 
 export default function renderMarkupMovieCard(data) {
@@ -10,7 +9,6 @@ export default function renderMarkupMovieCard(data) {
 
     .map(
       ({ id, poster_path, genre_ids, title, release_date, vote_average }) => {
-        console.log(data);
         let gen = genre_ids.reduce((acc, item) => {
           genre.forEach(genreItem => {
             if (item === genreItem.id) {
@@ -100,4 +98,3 @@ function createIframe(results) {
 function closeModalYouTube() {
   document.querySelector('.backdrop-trailer').remove();
 }
-
