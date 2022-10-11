@@ -220,17 +220,20 @@ background-image: linear-gradient(to right,
 }
 
 .search__btn {
-    position: absolute;
-    top: 0;
-    right: 0;
+   
 
-    @include mq(tablet) {
-        right: 165px;
+    @include mq(mobile-only) {
+    position: absolute;
+        top: 0;
+        right: 0;
 
     }
+         @include mq(tablet) {
+             margin-left: -20px;
+         }
 
         @include mq(desktop) {
-        right:385px;
+        margin-left: -20px;
     }
 
     padding: 0;
@@ -239,6 +242,7 @@ background-image: linear-gradient(to right,
     border: transparent;
 
     color: var(--primary-text-color);
+        cursor: pointer;
 
     
 
