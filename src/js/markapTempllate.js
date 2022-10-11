@@ -1,4 +1,3 @@
-
 import fetchTrailers from './fetchTrailer';
 
 export default function renderMarkupMovieCard(data) {
@@ -10,7 +9,6 @@ export default function renderMarkupMovieCard(data) {
 
     .map(
       ({ id, poster_path, genre_ids, title, release_date, vote_average }) => {
-        console.log(data);
         let gen = genre_ids.reduce((acc, item) => {
           genre.forEach(genreItem => {
             if (item === genreItem.id) {
@@ -84,6 +82,11 @@ async function onYoutubeClick(evt) {
       console.log('df', response[0].key);
       return;
     }
+    window.addEventListener('keydown', onKeyDownEscModalClose);
+    const body = document.querySelector('body');
+    body.style.overflow = 'hidden';
+    const backdrop = document.querySelector('.backdrop-trailer');
+    backdrop.addEventListener('click', onClickBackdrModalClose);
   }
 }
 
@@ -92,12 +95,29 @@ function createIframe(results) {
   <iframe class="iframe" fullscreen src="https://www.youtube.com/embed/${results}" frameborder="0"></iframe>
   </div></div>`;
   document.body.insertAdjacentHTML('beforeend', iframe);
-  document
-    .querySelector('.close-modal__trailer')
-    .addEventListener('click', closeModalYouTube);
+  const closeModalBtn = document.querySelector('.close-modal__trailer');
+  closeModalBtn.addEventListener('click', closeModalYouTube);
 }
 
 function closeModalYouTube() {
   document.querySelector('.backdrop-trailer').remove();
+  window.removeEventListener('keydown', onKeyDownEscModalClose);
+  body.style.overflow = '';
+  closeModalBtn.removeEventListener('click', closeModalYouTube);
+  backdrop.removeEventListener('click', onClickBackdrModalClose);
+  //  backdrop.innerHTML = '';
 }
 
+function onClickBackdrModalClose(event) {
+  if (event.target === event.currentTarget) {
+    closeModalYouTube();
+  }
+}
+
+function onKeyDownEscModalClose(event) {
+  const KEY_CODE_ESCAPE = 'Escape';
+
+  if (event.code === KEY_CODE_ESCAPE) {
+    closeModalYouTube();
+  }
+}
