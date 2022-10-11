@@ -1,6 +1,7 @@
 import getArrQueueWithLocalStorage from './getArrQueueWithLocalStorage'; // Queue
 import renderMarkupMovieCard from './markapTempllate';
 import openModalLibraryQueue from './openModalLibreryQueue';
+import checkPresenceMovieInQueue from './checkPresenceMovieInQueue'; // Queue
 // import findLi from './openModal';
 export default function renderQueueMarkup() {
   const btnQueue = document.querySelector('.btn-header__queue');
@@ -9,6 +10,9 @@ export default function renderQueueMarkup() {
 
   function onQueue(event) {
     event.preventDefault();
+    const galleryEl = document.querySelector('.gallery');
+    galleryEl.innerHTML = '';
+
     //   // deletePhotoMarkup();//1111111111111111111111111111111111111111111111111111111111111
     // console.log('asdasdasddasas');
     //   //дістаємо з локал сторедж
@@ -23,17 +27,22 @@ export default function renderQueueMarkup() {
       const title =
         '<h2 class="title-queue" style="color: black" >Your queue is empty</h2>';
       const gallery = document.querySelector('.gallery');
-      return (gallery.innerHTML = title);
+      gallery.innerHTML = title;
+
+      gallery.classList.add('gallery--queue-empty');
+      return;
     }
     //   // рендер
     // renderQueue(parsedFilmsInQueue);
     renderMarkupMovieCard(parsedFilmsInQueue);
     openModalLibraryQueue();
+
+    // checkPresenceMovieInQueue();
     //   // findLi(); //openModal
 
     // 4.1) При загрузці фільмів перевіряє чи є цей фільм у Queue
     // і робить кнопку червоною/зеленою
-    //   checkPresenceFilm();
+    // checkPresenceFilm();
 
     //   //1111111111111111111111111111111111111111111111111111111111111
     //   //Видаляєм фільм з локал сторедж

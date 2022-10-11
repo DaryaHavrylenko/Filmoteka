@@ -3,7 +3,7 @@ export default function addAndRemoveQueue(objMovies) {
   // console.log('У queue', objMovies);
   let btnAddToQueueEl = document.querySelector('.film-add__queue');
   btnAddToQueueEl.addEventListener('click', onAddQueue);
-  btnAddToQueueEl.style.backgroundColor = 'green';
+  // btnAddToQueueEl.style.backgroundColor = 'white';
   function onAddQueue(event) {
     event.preventDefault();
     // console.log(event);
@@ -12,7 +12,7 @@ export default function addAndRemoveQueue(objMovies) {
     //0)Якщо фільм вже є у списку Черги
     if (btnAddToQueueEl.textContent === 'Remove from Queue') {
       btnAddToQueueEl.textContent = 'Add to Queue';
-      btnAddToQueueEl.style.backgroundColor = 'green';
+      btnAddToQueueEl.style.backgroundColor = 'white';
 
       //0.1) Дістаєм з локал сторедж список Черги
 
@@ -35,7 +35,7 @@ export default function addAndRemoveQueue(objMovies) {
     // console.log(idCurrentFilm);
     //Міняєм стан кнопки
     btnAddToQueueEl.textContent = 'Remove from Queue';
-    btnAddToQueueEl.style.backgroundColor = 'red';
+    btnAddToQueueEl.style.backgroundColor = '#FF6B01';
 
     // 1) Перевіряєм/дістаєм з локал сторедж Queue
     //   movies from local storage
