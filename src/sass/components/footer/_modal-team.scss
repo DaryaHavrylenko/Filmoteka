@@ -20,7 +20,7 @@
   left: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  z-index: 2;
+  z-index: 11;
   // transition: opacity 250ms, visibility 250ms;
 }
 
@@ -35,7 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100%;
+  min-height: 90%;
   padding: 30px 10px;
 }
 
