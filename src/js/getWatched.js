@@ -14,7 +14,7 @@ export default function getWatched() {
   const fromLS = localStorage.getItem('watched');
   refs.btnQueue.classList.remove('btn-header--active');
   refs.btnWatched.classList.add('btn-header--active');
-
+  // clear();
   if (fromLS === '[]' || fromLS === null) {
     clear();
     // return refs.ul.insertAdjacentHTML(
@@ -33,7 +33,7 @@ export default function getWatched() {
   section?.classList.remove('library-plug');
   clear();
   const arrayFilms = JSON.parse(fromLS);
-  arrayFilms.reverse();
+  // arrayFilms.reverse();
   renderMarkupMovieCard(arrayFilms);
   findLi();
 }
