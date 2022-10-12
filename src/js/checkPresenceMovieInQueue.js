@@ -1,5 +1,6 @@
 // 0) При загрузці фільмів перевіряє чи є цей фільм у Queue
 // і робить кнопку червоною/зеленою
+import getArrQueueWithLocalStorage from './getArrQueueWithLocalStorage';
 export default function checkPresenceMovieInQueue() {
   const parsedFilmsInQueue = getArrQueueWithLocalStorage();
 
@@ -9,16 +10,7 @@ export default function checkPresenceMovieInQueue() {
   parsedFilmsInQueue.map(film => {
     if (film.id === idBtn) {
       btnAddToQueueEl.textContent = 'Remove from Queue';
-      btnAddToQueueEl.style.backgroundColor = '#FF6B01';
+      btnAddToQueueEl.classList.add('film-add__queue-active');
     }
   });
-  // 1) Get масиву фільмів з локал сторедж Queue
-  function getArrQueueWithLocalStorage() {
-    try {
-      const serializedState = localStorage.getItem('FilmsArrQueue');
-      return serializedState === null ? undefined : JSON.parse(serializedState);
-    } catch (error) {
-      console.error('Get state error: ', error.message);
-    }
-  }
 }
