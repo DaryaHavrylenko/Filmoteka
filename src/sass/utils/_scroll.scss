@@ -1,17 +1,14 @@
 #toTop {
   position: fixed;
   display: inline-block;
-  bottom: 90px;
+  bottom: 110px;
   right: -40px;
   width: 40px;
   height: 40px;
   z-index: 1000;
   cursor: pointer;
   text-align: center;
-  /* color: #fff; */
   border-radius: 4px;
-  /* border-color: black; */
-  /* background: orange; */
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
   opacity: 0;
   visibility: hidden;

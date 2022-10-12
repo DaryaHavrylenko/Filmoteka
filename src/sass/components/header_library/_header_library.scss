@@ -197,17 +197,18 @@
     margin-right: 19.94px;
 
     @include mq(tablet) {
+      display: flex;
+        align-items: center;
       margin-right: 32px;
     }
     @include mq(desktop) {
         margin-right: 16px;
     }
   }
-  @include mq(tablet) {
-
-    display: flex;
-    align-items: center;
-  }
+  // @include mq(tablet) {
+  //   display: flex;
+  //   align-items: center;
+  // }
 }
 
 .btn-header {
@@ -240,5 +241,6 @@
   &:hover,
   &:focus {
     background-color: var(--accent-color);
+      transition: transform 250ms var(--timing-function);
   }
 }
