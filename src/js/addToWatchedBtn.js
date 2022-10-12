@@ -54,12 +54,12 @@ export default function onOpenMovieCard() {
       const watchedArray = [];
       watchedArray.push(movie);
       localStorage.setItem('watched', JSON.stringify(watchedArray));
-      Notify.success('This movie was added to the WATCHED list');
+      // Notify.success('This movie was added to the WATCHED list');
     } else {
       const localStorageWatched = JSON.parse(localStorage.getItem('watched'));
       localStorageWatched.push(movie);
       localStorage.setItem('watched', JSON.stringify(localStorageWatched));
-      Notify.success('This movie was added to the WATCHED list');
+      // Notify.success('This movie was added to the WATCHED list');
     }
   }
 
@@ -68,14 +68,14 @@ export default function onOpenMovieCard() {
     if (localStorageWatched.length === 1) {
       const emptyWatchedList = [];
       localStorage.setItem('watched', JSON.stringify(emptyWatchedList));
-      Notify.failure('This movie was deleted from WATCHED list');
+      // Notify.failure('This movie was deleted from WATCHED list');
     } else {
       const updateWatchedList = localStorageWatched.filter(
         item => item.id !== Number(movie.id)
       );
 
       localStorage.setItem('watched', JSON.stringify(updateWatchedList));
-      Notify.failure('This movie was deleted from WATCHED list');
+      // Notify.failure('This movie was deleted from WATCHED list');
     }
   }
 }
