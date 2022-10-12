@@ -20,7 +20,7 @@ export default function renderMarkupMovieCard(data) {
         const genres = [...gen];
         if (genres.length > 2) genres.splice(2);
         if (genres.length === 2) genres.push(`Other`);
-        console.log(genres);
+        // console.log(genres);
         if (release_date === 0 || release_date === undefined) release_date = '';
         return `<li class="gallery__item" >
                
@@ -98,6 +98,7 @@ function createIframe(results) {
 }
 
 function closeModalYouTube() {
+  const body = document.querySelector('body');
   document.querySelector('.backdrop-trailer').remove();
   window.removeEventListener('keydown', onKeyDownEscModalClose);
   body.style.overflow = '';

@@ -1,6 +1,23 @@
 import addAndRemoveQueue from './add&removeQueue'; // Queue
 import checkPresenceMovieInQueue from './checkPresenceMovieInQueue'; // Queue
 import onOpenMovieCard from './addToWatchedBtn'; // добавила Лера для Watched btn
+import renderMarkupMovieCard from './markapTempllate';
+import getWatched from './getWatched';
+
+const refs = {
+  ul: document.querySelector('.gallery'),
+};
+
+function clear() {
+  console.log('clear');
+  refs.ul.innerHTML = ' ';
+}
+
+const currentPage = document.querySelector('.navigation__btn--current'); //добавили Лера и Саша
+const currentPageText = currentPage.textContent; //добавили Лера и Саша
+//   console.log(currentPageText);
+//
+const watchedBtn = document.querySelector('.btn-header__watched'); //добавили Лера и Саша watched
 
 export default async function findLi() {
   const backdrop = document.querySelector('.modal-backdrop');
@@ -11,14 +28,22 @@ export default async function findLi() {
     if (event.target.nodeName === 'BUTTON') return;
     try {
       let ar = event.currentTarget.id;
-      const searchValue = JSON.parse(
-        localStorage.getItem('currentPopularMovies')
-      ).find(item => item.id == ar);
+      let searchValue;
+
+      if (
+        currentPageText === 'my library' &&
+        watchedBtn.classList.contains('btn-header--active')
+      ) {
+        searchValue = JSON.parse(localStorage.getItem('watched')).find(
+          item => item.id == ar
+        );
+        console.log(searchValue);
+      }
 
       renderMarkupModal(searchValue);
-      addAndRemoveQueue(searchValue); //Queue
+      //   addAndRemoveQueue(searchValue); //Queue
+      // checkPresenceMovieInQueue(); //Queue
       onOpenMovieCard(); // добавила Лера для Watched btn
-      checkPresenceMovieInQueue(); //Queue
     } catch (error) {
       console.log(error);
     }
@@ -27,7 +52,7 @@ export default async function findLi() {
   function renderMarkupModal(searchValue) {
     const genre = JSON.parse(localStorage.getItem('genresDataArray'));
     console.log(searchValue);
-    const markup = mark();
+    const markup = mark(searchValue);
     function mark({
       id,
       poster_path,
@@ -121,8 +146,9 @@ export default async function findLi() {
       refs.closeModalBtn.removeEventListener('click', onCloseModal);
       backdrop.removeEventListener('click', onClickBackdropModalClose);
       backdrop.innerHTML = '';
+      clear();
+      getWatched();
     }
-
     function onClickBackdropModalClose(event) {
       if (event.target === event.currentTarget) {
         onCloseModal();
@@ -137,4 +163,8 @@ export default async function findLi() {
       }
     }
   }
+}
+
+function clear() {
+  refs.ul.innerHTML = ' ';
 }
