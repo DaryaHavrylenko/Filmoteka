@@ -163,6 +163,7 @@ function handleMoreClick(event) {
 
       clearGalleryMarkup();
       renderMarkupMovieCard(results);
+      findLi();
       updateLocalStorage(results);
     })
     .catch(error => console.log(error));
