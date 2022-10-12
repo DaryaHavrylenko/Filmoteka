@@ -14,10 +14,14 @@ export default function getWatched() {
 
   if (fromLS === '[]' || fromLS === null) {
     clear();
-    return refs.ul.insertAdjacentHTML(
-      'afterbegin',
-      '<li><h1 style=color:green> your list is empty </h1></li>'
-    );
+    // return refs.ul.insertAdjacentHTML(
+    //   'afterbegin',
+      const title = '<h1 class="title-queue"> your list is empty </h1>';
+      const container = document.querySelector('.container');
+        const section = document.querySelector('.gallery-section');
+        section.classList.add('library-plug');
+        container.innerHTML = title;
+        return;
   }
   clear();
   const arrayFilms = JSON.parse(fromLS);
