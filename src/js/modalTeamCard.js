@@ -16,11 +16,15 @@ const refs = {
   openModalBtn: document.querySelector('[data-modal-open-contacts]'),
     closeModalBtn: document.querySelector('[data-modal-close-contacts]'),
   backdrop: document.querySelector('.backdrop__modal'),
+//   isHiddenBtn: document.querySelector('.button-subscribe__main'),
+// isHiddenLink: document.querySelector('.button-subscribe__pulse'),
+  
 };
 
 refs.openModalBtn.addEventListener('click', onOpenModal);
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onClickBackdrop);
+
 
 
 //* При клике на ссылку открывается модалка (класс 'is-hidden' убираем c backdrop)
@@ -29,6 +33,8 @@ refs.backdrop.addEventListener('click', onClickBackdrop);
 
 function onOpenModal() {
   console.log("DONE");
+  // refs.isHiddenBtn.classList.add('.is-hidden-btn');
+  // refs.isHiddenLink.classList.add('.is-hidden-btn');
   refs.backdrop.classList.remove('is-hidden');
   window.addEventListener('keydown', onPressESC);
 }

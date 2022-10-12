@@ -11,6 +11,7 @@
 //*    Modal backdrop      //
 
 .backdrop__modal {
+
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -36,15 +37,18 @@
   justify-content: center;
   align-items: center;
   min-height: 90%;
+  min-width: 100vh;
   padding: 30px 10px;
 }
 
 .modalTeam__about {
   display: flex;
+  // height: 75vh;
+  // width: 140vh;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .modalTeam {
@@ -115,8 +119,8 @@
 .modalTeam__img {
   cursor: pointer;
   border-radius: 25%;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   margin: 10px;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -124,8 +128,8 @@
   transition: 0.3s ease-in-out;
 
   @media screen and (min-width: $tablet) {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     margin: 10px;
   }
 }
@@ -139,7 +143,6 @@
 
 .modalTeam__style.fix {
   margin: 10px;
-  margin-bottom: 20px;
   border-radius: 20%;
   background-color: rgba(93, 87, 83, 0.9);
   box-shadow: 0 0 22px rgb(125, 122, 121);
@@ -165,4 +168,11 @@
   &:focus {
     color: var(--second-bgc);
   }
+}
+
+.is-hidden-btn{
+  opacity: 0;
+  display: none;
+visibility: hidden;
+pointer-events: none;
 }

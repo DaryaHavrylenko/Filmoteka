@@ -10,11 +10,19 @@
 .footer {
   background-color: var(--second-bgc);
 }
-
 .footer__holder {
+    padding-top: 20px;
+    // padding-bottom: 28px;
+    color: var(--footer-text-color);
+    justify-content: center;
+    text-align: center;
+  }
+
+
+.main-footer{
   padding-top: 30px;
   padding-bottom: 28px;
-  color: var(--footer-text-color);
+  // color: var(--footer-text-color);
   justify-content: center;
   text-align: center;
   // align-items: center;
@@ -32,33 +40,58 @@
     font-size: 16px;
     line-height: 1.14;
   }
- 
-//  height: 100px;
-
-//   @media screen and (min-width: $tablet) {
-//     height: 79px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     text-align: center;
-//     padding: 0;
-//     margin: 0;
-//     width: auto;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     height: 77px;
-//   }
 }
+
+
+// .footer__holder {
+//   padding-top: 30px;
+//   padding-bottom: 28px;
+//   color: var(--footer-text-color);
+//   justify-content: center;
+//   text-align: center;
+//   // align-items: center;
+//   align-items: baseline;
+  
+
+//   @media screen and (max-width: 767px) {
+    
+//     margin: 0 auto;
+//     font-size: 14px;
+//     line-height: 1.18;
+//   }
+//   @media screen and (min-width: $tablet) {
+//     display: flex;
+//     font-size: 16px;
+//     line-height: 1.14;
+//   }
+ 
+// //  height: 100px;
+
+// //   @media screen and (min-width: $tablet) {
+// //     height: 79px;
+// //     display: flex;
+// //     align-items: center;
+// //     justify-content: center;
+// //     text-align: center;
+// //     padding: 0;
+// //     margin: 0;
+// //     width: auto;
+// //   }
+
+// //   @media screen and (min-width: $desktop) {
+// //     height: 77px;
+// //   }
+// }
 
 .footer__sign  {
   
-  padding-top: 28px;
+  padding-top: 10px;
   margin-bottom: 9.9px;
   // display: flex;
   // align-items: center;
 
   @include mq(tablet) {
+    padding-top: 28px;
     margin-right: 7px;
     padding: 0px;
     margin-bottom: 0px;
@@ -224,11 +257,12 @@
 
 .button-subscribe__main {
   display: inline-flex;
-  z-index: 1000;
+  margin-top: 15px;
+  z-index: 9;
   align-items: center;
   background: var(--main-accent-color);
   box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
-  border-radius: 5px;
+  border-radius: 10px;
   height: 45px;
   padding: 0 30px;
   color: #fff;
@@ -278,3 +312,10 @@
   .button-subscribe__pulse:hover:before, .button-subscribe__pulse:hover:after {
     display: none;
   }
+
+  // .is-hidden-btn{
+  //   opacity: 0;
+  // visibility: hidden;
+  // pointer-events: none;
+  // }
+  
