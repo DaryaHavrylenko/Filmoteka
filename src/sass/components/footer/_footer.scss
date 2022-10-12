@@ -286,6 +286,10 @@
 
 .button-subscribe__pulse {
   position: relative;
+  color: #fff;
+  font-family: Lato, Arial, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .button-subscribe__pulse:before, .button-subscribe__pulse:after {
