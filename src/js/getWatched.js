@@ -1,9 +1,32 @@
-// const api_key = "301d018a3b09052968e9ce18b1793bab";
+import renderMarkupMovieCard from './markapTempllate';
+import findLi from './modalWatched';
+import openModal from './openModal';
 
+const refs = {
+  btnWatched: document.querySelector('.btn-header'),
+  ul: document.querySelector('.gallery'),
+};
 
-// fetch(`
-// https://api.themoviedb.org/3/trending/all/day?api_key=${api_key}`)
-// .then(res => res.json())
-// .then(res => console.log(res))
+refs.btnWatched.addEventListener('click', getWatched);
 
+export default function getWatched() {
+  const fromLS = localStorage.getItem('watched');
 
+  if (fromLS === '[]' || fromLS === null) {
+    clear();
+    return refs.ul.insertAdjacentHTML(
+      'afterbegin',
+      '<li><h1 style=color:green> your list is empty </h1></li>'
+    );
+  }
+  clear();
+  const arrayFilms = JSON.parse(fromLS);
+  renderMarkupMovieCard(arrayFilms);
+  findLi();
+}
+
+function clear() {
+  refs.ul.innerHTML = ' ';
+}
+
+function modalWatched() {}

@@ -1,33 +1,34 @@
 import addAndRemoveQueue from './add&removeQueue'; // Queue
 import checkPresenceMovieInQueue from './checkPresenceMovieInQueue'; // Queue
 import onOpenMovieCard from './addToWatchedBtn'; // добавила Лера для Watched btn
+import getArrQueueWithLocalStorage from './getArrQueueWithLocalStorage'; // Queue
+import renderMarkupMovieCard from './markapTempllate';
 
-export default async function findLi() {
+export default function openModalLibraryQueue() {
   const backdrop = document.querySelector('.modal-backdrop');
   const cards = document.querySelectorAll('.movie-card');
   cards.forEach(item => item.addEventListener('click', onOpenModal));
 
   function onOpenModal(event) {
     if (event.target.nodeName === 'BUTTON') return;
-    try {
-      let ar = event.currentTarget.id;
-      const searchValue = JSON.parse(
-        localStorage.getItem('currentPopularMovies')
-      ).find(item => item.id == ar);
 
-      renderMarkupModal(searchValue);
-      addAndRemoveQueue(searchValue); //Queue
-      onOpenMovieCard(); // добавила Лера для Watched btn
-      checkPresenceMovieInQueue(); //Queue
-    } catch (error) {
-      console.log(error);
-    }
+    let ar = Number(event.currentTarget.id);
+
+    const arrWithLocalStorageQueue = getArrQueueWithLocalStorage();
+
+    const currentMovie = arrWithLocalStorageQueue.find(item => item.id === ar);
+
+    renderMarkupModal(currentMovie); //Queue
+    addAndRemoveQueue(currentMovie); //Queue
+    checkPresenceMovieInQueue(); //Queue
+    onOpenMovieCard();
   }
 
   function renderMarkupModal(searchValue) {
     const genre = JSON.parse(localStorage.getItem('genresDataArray'));
-    console.log(searchValue);
+
     const markup = mark();
+
     function mark({
       id,
       poster_path,
@@ -121,6 +122,24 @@ export default async function findLi() {
       refs.closeModalBtn.removeEventListener('click', onCloseModal);
       backdrop.removeEventListener('click', onClickBackdropModalClose);
       backdrop.innerHTML = '';
+
+      // 1)При видаленні карточки і закритті модалки рендериться розмітка карток заново
+      const galleryEl = document.querySelector('.gallery');
+
+      galleryEl.innerHTML = '';
+      const arrMovieWithLocalStorage = getArrQueueWithLocalStorage();
+
+      renderMarkupMovieCard(arrMovieWithLocalStorage);
+      openModalLibraryQueue();
+      //2)якщо черга пуста виводить Your queue is empty
+      if (!arrMovieWithLocalStorage || arrMovieWithLocalStorage.length === 0) {
+        const title = '<h2 class="title-queue">Your queue is empty</h2>';
+        const gallery = document.querySelector('.gallery');
+        gallery.innerHTML = title;
+
+        gallery.classList.add('gallery--queue-empty');
+        return;
+      }
     }
 
     function onClickBackdropModalClose(event) {
