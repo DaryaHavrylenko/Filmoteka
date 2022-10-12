@@ -1,4 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import deleteMovieWithQueueAtWatched from './deleteMovieWithQueueAtWatched'; //видалення фільму з Queue
 
 export default function onOpenMovieCard() {
   const addToWatchedBtn = document.querySelector('.film-add__watched');
@@ -42,6 +43,9 @@ export default function onOpenMovieCard() {
       addToWatchedBtn.textContent = 'DELETE FROM WATCHED';
       // menuItem.textContent = 'Delete from watched';
       addOneMovieToLocalStorage(currentMovie);
+      //Видаляє з Queue
+      const movieId = Number(addToWatchedBtn.id);
+      deleteMovieWithQueueAtWatched(movieId); //Видаляє з Queue
     } else {
       addToWatchedBtn.textContent = 'ADD TO WATCHED';
       // menuItem.textContent = 'Add to watched';

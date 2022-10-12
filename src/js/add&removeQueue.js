@@ -1,4 +1,5 @@
 import getArrQueueWithLocalStorage from './getArrQueueWithLocalStorage'; // Queue
+import deleteMovieWithWatchedAtQueue from './deleteMovieWithWatchedAtQueue'; //видалення фільму з Watched
 export default function addAndRemoveQueue(objMovies) {
   let btnAddToQueueEl = document.querySelector('.film-add__queue');
   btnAddToQueueEl.addEventListener('click', onAddQueue);
@@ -28,6 +29,7 @@ export default function addAndRemoveQueue(objMovies) {
         }
         return;
       });
+      // idCurrentFilm;
 
       return;
     }
@@ -35,7 +37,7 @@ export default function addAndRemoveQueue(objMovies) {
     //Міняєм стан кнопки
     btnAddToQueueEl.textContent = 'Remove from Queue';
     btnAddToQueueEl.classList.add('film-add__queue-active');
-
+    deleteMovieWithWatchedAtQueue(idCurrentFilm);
     const moviesFromLocalStorage = getArrQueueWithLocalStorage();
 
     // 2.1) Добавляєм в локал сторедж Queue якщо там пусто
