@@ -1,22 +1,13 @@
-// .gallery--queue-empty {
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//     // color: #757575;
-//   background-image: url('../images/queue-empty/empty.jpg');
-// }
-
-
 .library-plug {
-  height: 59vh;
+  height: 40vh;
   background-image: url("../images/queue-empty/plug.png");
   background-repeat: no-repeat;
   background-position-x: center;
-  background-position-y: 80px;
+  background-position-y: 50px;
   background-size: contain;
 
   @include mq(tablet) {
-    height: 65vh;
+    height: 48vh;
   }
 }
 
@@ -44,14 +35,3 @@
 
   }
 }
-
-.gallery--library {
-  background-color: none;
-}
-// .gallery--queue-empty {
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   // color: #757575;
-//   background-image: url('../images/queue-empty/empty.jpg');
-// }

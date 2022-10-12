@@ -134,10 +134,10 @@ export default function openModalLibraryQueue() {
       //2)якщо черга пуста виводить Your queue is empty
       if (!arrMovieWithLocalStorage || arrMovieWithLocalStorage.length === 0) {
         const title = '<h2 class="title-queue">Your queue is empty</h2>';
-        const gallery = document.querySelector('.gallery');
-        gallery.innerHTML = title;
-
-        gallery.classList.add('gallery--queue-empty');
+        const container = document.querySelector('.container');
+        const section = document.querySelector('.gallery-section');
+        section.classList.add('library-plug');
+        container.innerHTML = title;
         return;
       }
     }
