@@ -71,6 +71,7 @@
   }
 }
 
+
 // .header-container {
 //   display: flex;
 //   flex-wrap: wrap;
@@ -243,4 +244,8 @@
     background-color: var(--accent-color);
       transition: transform 250ms var(--timing-function);
   }
+}
+
+.btn-header--active {
+  background-color: var(--main-accent-color);
 }
