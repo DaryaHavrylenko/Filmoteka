@@ -1,16 +1,14 @@
 export default function deleteMovieWithWatchedAtQueue(idMovie) {
   if (idMovie) {
-    console.log('Видаляєм з Watched фільм з id: ', idMovie);
     const arrMovieWithWatched = getArrWatchedInLocalStorage();
     arrMovieWithWatched?.map((film, index) => {
       let newArrMovieInWatched = arrMovieWithWatched;
       if (film.id === idMovie && idMovie) {
-        //   console.log('Цей фільм є у Queue з id: ', idMovie);
         newArrMovieInWatched.splice(index, 1);
         setArrWatchedInLocalStorage(newArrMovieInWatched); //пушимо новий масив у Watched
-        //   Міняє стан кнопки "Add to Watched"
+
         let btnAddToWatchedEl = document.querySelector('.film-add__watched');
-        //   btnAddToQueueEl.textContent = 'Addsdgfsdfdfsfsdf to Queue';
+
         btnAddToWatchedEl.textContent = 'ADD TO WATCHED';
         btnAddToWatchedEl.classList.remove('film-add__watched-active');
       }

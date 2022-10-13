@@ -13,7 +13,7 @@ export default function renderMarkupMovieCard(data) {
           genre.forEach(genreItem => {
             if (item === genreItem.id) {
               acc.push(' ' + [genreItem.name]);
-              console.log(genreItem.name);
+              // console.log(genreItem.name);
             }
           });
           return acc;

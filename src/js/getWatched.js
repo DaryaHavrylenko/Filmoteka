@@ -1,5 +1,5 @@
 import renderMarkupMovieCard from './markapTempllate';
-import findLi from './modalWatched';
+import findLiWatched from './modalWatched';
 import openModal from './openModal';
 
 const refs = {
@@ -35,7 +35,7 @@ export default function getWatched() {
   const arrayFilms = JSON.parse(fromLS);
   arrayFilms.reverse();
   renderMarkupMovieCard(arrayFilms);
-  findLi();
+  findLiWatched();
 }
 
 function clear() {

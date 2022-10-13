@@ -4,22 +4,12 @@ import onOpenMovieCard from './addToWatchedBtn'; // добавила Лера д
 import renderMarkupMovieCard from './markapTempllate';
 import getWatched from './getWatched';
 
-const refs = {
-  ul: document.querySelector('.gallery'),
-};
-
-function clear() {
-  console.log('clear');
-  refs.ul.innerHTML = ' ';
-}
-
 const currentPage = document.querySelector('.navigation__btn--current'); //добавили Лера и Саша
 const currentPageText = currentPage.textContent; //добавили Лера и Саша
-//   console.log(currentPageText);
-//
+
 const watchedBtn = document.querySelector('.btn-header__watched'); //добавили Лера и Саша watched
 
-export default async function findLi() {
+export default function findLiWatched() {
   const backdrop = document.querySelector('.modal-backdrop');
   const cards = document.querySelectorAll('.movie-card');
   cards.forEach(item => item.addEventListener('click', onOpenModal));
@@ -37,7 +27,6 @@ export default async function findLi() {
         searchValue = JSON.parse(localStorage.getItem('watched')).find(
           item => item.id == ar
         );
-        console.log(searchValue);
       }
 
       renderMarkupModal(searchValue);
@@ -51,7 +40,7 @@ export default async function findLi() {
 
   function renderMarkupModal(searchValue) {
     const genre = JSON.parse(localStorage.getItem('genresDataArray'));
-    // console.log(searchValue);
+
     const markup = mark(searchValue);
     function mark({
       id,
@@ -146,7 +135,9 @@ export default async function findLi() {
       refs.closeModalBtn.removeEventListener('click', onCloseModal);
       backdrop.removeEventListener('click', onClickBackdropModalClose);
       backdrop.innerHTML = '';
-      clear();
+
+      const galleryEl = document.querySelector('.gallery');
+      galleryEl.innerHTML = '';
       getWatched();
     }
     function onClickBackdropModalClose(event) {
@@ -163,8 +154,4 @@ export default async function findLi() {
       }
     }
   }
-}
-
-function clear() {
-  refs.ul.innerHTML = ' ';
 }
