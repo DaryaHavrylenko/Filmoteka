@@ -51,7 +51,7 @@ export default async function findLi() {
 
   function renderMarkupModal(searchValue) {
     const genre = JSON.parse(localStorage.getItem('genresDataArray'));
-    console.log(searchValue);
+    // console.log(searchValue);
     const markup = mark(searchValue);
     function mark({
       id,

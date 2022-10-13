@@ -133,13 +133,18 @@ export default function openModalLibraryQueue() {
       openModalLibraryQueue();
       //2)якщо черга пуста виводить Your queue is empty
       if (!arrMovieWithLocalStorage || arrMovieWithLocalStorage.length === 0) {
-        const title = '<h2 class="title-queue">Your queue is empty</h2>';
+        const title = `<h1 class="title-queue">Your queue is empty</h1>
+    <ul class="gallery gallery--library"></ul>`;
         const container = document.querySelector('.container');
         const section = document.querySelector('.gallery-section');
         section.classList.add('library-plug');
         container.innerHTML = title;
         return;
       }
+      const titleEl = document.querySelector('.title-queue');
+      titleEl?.remove();
+      const section = document.querySelector('.gallery-section');
+      section?.classList.remove('library-plug');
     }
 
     function onClickBackdropModalClose(event) {
