@@ -5,4 +5,4 @@ import './js/scroll';
 // import './js/openModal';
 import './js/getWatched';
 import './js/modalWatched';
-// import './js/currentBtnQueue';
+import './js/currentBtnQueue';
