@@ -107,6 +107,11 @@ $desktop: 1280px;
   fill: var(--primary-text-color);
   height: 25px;
   width: 25px;
+&:hover {
+        transition: var(--timing-function);
+        transform: rotate(180deg) scale(120%);
+    }
+
 }
 
 .logo__text {
@@ -115,7 +120,7 @@ $desktop: 1280px;
   &:hover,
   &:focus {
     color: var(--accent-color);
-    transition: transform 250ms var(--timing-function);
+    transition: var(--timing-function);
   }
   @include mq(tablet) {
     display: inline;
@@ -162,7 +167,7 @@ $desktop: 1280px;
   &:hover {
     color: var(--accent-color);
 
-    transition: transform 250ms var(--timing-function);
+    transition: var(--timing-function);
   }
 
   &--current {
@@ -176,7 +181,7 @@ $desktop: 1280px;
       height: 3px;
       background: var(--accent-color);
 
-      transition: transform 250ms var(--timing-function);
+      transition: var(--timing-function);
     }
   }
 }
@@ -213,8 +218,10 @@ $desktop: 1280px;
   &:focus {
     outline: none;
     border-bottom: 1px solid var(--accent-color);
+    transition: var(--timing-function);
     &::placeholder {
       color: var(--accent-color);
+    transition: var(--timing-function);
     }
   }
 }
@@ -243,13 +250,15 @@ $desktop: 1280px;
 
   .search__field:focus ~ & {
     color: var(--accent-color);
+transition: var(--timing-function);
   }
 }
 
 .search__icon {
-  fill: inherit;
+  fill: transparent;
   &:hover,
   &:focus {
     fill: var(--accent-color);
+    transition: var(--timing-function);
   }
 }

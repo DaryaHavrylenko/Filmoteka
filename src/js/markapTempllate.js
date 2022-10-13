@@ -12,16 +12,18 @@ export default function renderMarkupMovieCard(data) {
         let gen = genre_ids.reduce((acc, item) => {
           genre.forEach(genreItem => {
             if (item === genreItem.id) {
-              acc.push([genreItem.name]);
+              acc.push(' ' + [genreItem.name]);
+              console.log(genreItem.name);
             }
           });
           return acc;
         }, []);
         const genres = [...gen];
         if (genres.length > 2) genres.splice(2);
-        if (genres.length === 2) genres.push(`Other`);
+        if (genres.length === 2) genres.push(`  Other`);
         // console.log(genres);
         if (release_date === 0 || release_date === undefined) release_date = '';
+        // console.log(genres);
         return `<li class="gallery__item" >
                
                 <div class="movie-card" id="${id}">
@@ -46,8 +48,8 @@ export default function renderMarkupMovieCard(data) {
                     <h2 class="movie-info-title"> ${title}</h2>
                     <div class="movie-card__thumb">
                     <div class="movie-info-list">
-                        <p class="info-item"> ${genres}</p>
-<span class "info-item-slash">&#127902; </span>
+                        <p class="info-item"> ${genres} </p>  
+<span class "info-item-slash">  &#127902; </span>  
               <p class="info-item-year">${release_date?.slice(0, 4)}</p>
               </div>
     </li>`;
