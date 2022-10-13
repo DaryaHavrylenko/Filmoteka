@@ -78,12 +78,14 @@
   left: 10px;
 
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    -webkit-box-shadow: 10px 11px 11px -8px rgba(255, 0, 0, 1);
-    -moz-box-shadow: 10px 11px 11px -8px rgba(255, 0, 0, 1);
-    box-shadow: 10px 11px 11px -8px rgba(255, 0, 0, 1);
+    // -webkit-box-shadow: 10px 11px 11px -8px rgba(255, 0, 0, 1);
+    // -moz-box-shadow: 10px 11px 11px -8px rgba(255, 0, 0, 1);
+    // box-shadow: 10px 11px 11px -8px rgba(255, 0, 0, 1);
+    transform: scale(1.13);
   }
 }
 
@@ -105,8 +107,6 @@
   cursor: pointer;
   &:hover {
     scale: 1.15;
-
-    // transform: translateY(30px) ;
   }
 
   @include mq(tablet) {
@@ -130,14 +130,12 @@
   color: var(--title-color);
   @media screen and (min-width: $desktop) {
     font-size: 15px;
-
   }
 
   .dark-theme & {
     color: var(--second-bgc);
   }
 }
-
 
 .movie-card__thumb {
   display: flex;
