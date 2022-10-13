@@ -1,4 +1,7 @@
 /* THEME SWITCH */
+.header-container {
+ position: relative;
+}
 
 body.light-theme {
     background-color: #fff;
@@ -19,17 +22,17 @@ body.light-theme {
 
 .theme-switch {
     position: absolute;
-    top: 180;
-    right:10;
+    top: 155px;
+    right: 3%;
     display: flex;
     align-items: center;
     @include mq(tablet) {
-      top: 170;
-        right: 35;
+      top: 120%;
+        right: 1%;
       }
     
       @include mq(desktop) {
-        right: 30;
+        right: 1%;
       }
   }
   
@@ -88,7 +91,7 @@ body.light-theme {
     pointer-events: none;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
     transform: translateX(3px);
-    transition: transform 250ms var(--timing-function);
+   transition: var(--timing-function);
   }
   
   .theme-switch__toggle:checked + .theme-switch__track {

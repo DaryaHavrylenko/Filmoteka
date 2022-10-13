@@ -4,9 +4,9 @@
 //   padding-top: 44px;
 //   padding-bottom: 62px;
 
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   background-size: cover;
+// //   background-repeat: no-repeat;
+// //   background-position: center;
+// //   background-size: cover;
 // }
 
 .header--library {
@@ -183,7 +183,7 @@
   flex-direction: row;
   justify-content: center;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 60px;
   margin-bottom: 62px;
   width: 100%;
 
@@ -242,7 +242,7 @@
   &:hover,
   &:focus {
     background-color: var(--accent-color);
-      transition: transform 250ms var(--timing-function);
+      transition: var(--timing-function);
   }
 }
 
