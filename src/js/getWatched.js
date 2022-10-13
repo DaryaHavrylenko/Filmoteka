@@ -33,7 +33,7 @@ export default function getWatched() {
   section?.classList.remove('library-plug');
   clear();
   const arrayFilms = JSON.parse(fromLS);
-  // arrayFilms.reverse();
+  arrayFilms.reverse();
   renderMarkupMovieCard(arrayFilms);
   findLi();
 }

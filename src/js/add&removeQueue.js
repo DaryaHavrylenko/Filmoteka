@@ -37,6 +37,7 @@ export default function addAndRemoveQueue(objMovies) {
     //Міняєм стан кнопки
     btnAddToQueueEl.textContent = 'Remove from Queue';
     btnAddToQueueEl.classList.add('film-add__queue-active');
+    // console.log(idCurrentFilm);
     deleteMovieWithWatchedAtQueue(idCurrentFilm);
     const moviesFromLocalStorage = getArrQueueWithLocalStorage();
 
