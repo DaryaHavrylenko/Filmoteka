@@ -1,0 +1,35 @@
+.waviy {
+  position: relative;
+  -webkit-box-reflect: below -30px linear-gradient(transparent, rgba(0, 0, 0, 0.092));
+  font-size: 0px;
+}
+.waviy span {
+  font-size: 30px;
+  font-family: var(--primary-font);
+  position: relative;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  //text-transform: uppercase;
+  animation: waviy 1s backwards;
+  animation-delay: calc(0.1s * var(--i));
+  transition: transform 200ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+    -webkit-transform: rotateZ(10deg);
+    -ms-transform: rotateZ(10deg);
+    transform: rotateZ(10deg);
+    scale: 1.1;
+  }
+}
+@keyframes waviy {
+  0%,
+  40%,
+  50% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-25px);
+  }
+}
