@@ -26,20 +26,15 @@
 
   &.active {
     opacity: 1;
-  
     pointer-events: auto;
-    
     & .film-card__modal {
       filter: blur(0);
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
     }
-
-
   }
 }
-
 
 .opModal {
   z-index: 9999;
@@ -48,7 +43,6 @@
 }
 
 .film-card__modal {
-  
   position: absolute;
   flex-direction: row;
   justify-content: center;
@@ -63,15 +57,14 @@
   padding: 1rem;
   background-color: var(--primary-text-color);
 
-  .dark-theme & {background-color: #430d06;
+  .dark-theme & {
+    background-color: #430d06;
     background-image: linear-gradient(225deg, #430d06 0%, #0f0303 89%);
-    }
+  }
 
   border-radius: 6px;
   transition: all 1.2s;
   filter: blur(2px);
-
-  
 
   @media screen and (min-width: 480px) {
     width: 410px;
@@ -104,8 +97,10 @@
 
   cursor: pointer;
 
-  .dark-theme & {color:var(--second-bgc); border: 1px solid rgb(255, 255, 255);}
-  
+  .dark-theme & {
+    color: var(--second-bgc);
+    border: 1px solid rgb(255, 255, 255);
+  }
 }
 
 .modal-film__btn:hover {
@@ -127,7 +122,10 @@
   right: 5px;
   top: 5px;
 
-  .dark-theme & {color:var(--second-bgc); border: none;}
+  .dark-theme & {
+    color: var(--second-bgc);
+    border: none;
+  }
 
   @media screen and (max-width: 767px) {
     right: 2px;
@@ -145,7 +143,9 @@
 
   margin-bottom: 20px;
 
-  .dark-theme & {color: rgb(184, 184, 184)}
+  .dark-theme & {
+    color: rgb(184, 184, 184);
+  }
 }
 
 .film-add__btn {
@@ -205,7 +205,9 @@
   padding-right: 10px;
   border-radius: 5px;
 
-  .dark-theme & {color: var(--title-color)}
+  .dark-theme & {
+    color: var(--title-color);
+  }
 }
 
 .separator {
@@ -215,6 +217,7 @@
 .film-card__img {
   width: 375px;
   height: 468px;
+
   @media screen and (max-width: 479px) {
     width: 240px;
     height: 357px;
@@ -234,7 +237,9 @@
   text-transform: uppercase;
 
   margin-bottom: 8px;
-  .dark-theme & {color:var(--second-bgc)};
+  .dark-theme & {
+    color: var(--second-bgc);
+  }
 }
 
 .about-film__title {
@@ -249,7 +254,9 @@
   margin-top: 5px;
   margin-bottom: 20px;
 
-  .dark-theme & {color:var(--second-bgc);}
+  .dark-theme & {
+    color: var(--second-bgc);
+  }
 
   @media screen and (max-width: 1024px) {
     font-size: 20px;
@@ -261,7 +268,9 @@
   font-size: var(--primary-font-size);
   color: var(--title-color);
 
-  .dark-theme & {color:var(--second-bgc);}
+  .dark-theme & {
+    color: var(--second-bgc);
+  }
 }
 
 .about-film__info {
@@ -278,7 +287,6 @@
   bottom: 25px;
   right: 25px;
 }
-
 
 .film-card__logo-icon {
   border: 1px solid white;
