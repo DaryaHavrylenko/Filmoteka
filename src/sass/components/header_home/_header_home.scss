@@ -218,8 +218,10 @@ $desktop: 1280px;
   &:focus {
     outline: none;
     border-bottom: 1px solid var(--accent-color);
+    transition: var(--timing-function);
     &::placeholder {
       color: var(--accent-color);
+    transition: var(--timing-function);
     }
   }
 }
