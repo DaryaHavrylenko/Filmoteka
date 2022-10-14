@@ -28,8 +28,8 @@ export async function fetchPopularMovies(pagePaginationNumber = 1) {
     }
 
     moviesDataforMarkupCreator = moviesDataArray.data.results;
-    //  console.log(moviesDataforMarkupCreator)
-    totalResults = moviesDataArray.data.total_results;
+    // console.log(moviesDataforMarkupCreator)
+    let totalResults = moviesDataArray.data.total_results;
 
     localStorage.setItem(
       'currentPopularMovies',
