@@ -118,7 +118,7 @@ function setGenre() {
     t.classList.add('tag');
     t.id = genre.id;
     t.innerText = genre.name;
-    // tagsEl.append(t);
+    tagsEl.append(t);
     // console.log(tagsEl);
 
     //по клику проверяем
