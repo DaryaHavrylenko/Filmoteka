@@ -187,10 +187,10 @@ function getMovies(url) {
       // console.log(data.results)
       if(data.results.length !== 0){
       showMovies(data.results);
-          currentPage = data.page;
-          nextPage = currentPage + 1;
-          prevPage = currentPage - 1;
-          totalPages = data.total_pages;
+          // currentPage = data.page;
+          // nextPage = currentPage + 1;
+          // prevPage = currentPage - 1;
+          // totalPages = data.total_pages;
 
           // current.innerText = currentPage;
 
