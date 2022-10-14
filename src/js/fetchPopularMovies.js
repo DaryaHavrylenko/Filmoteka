@@ -30,8 +30,9 @@ export async function fetchPopularMovies(pagePaginationNumber = 1) {
     }
 
     moviesDataforMarkupCreator = moviesDataArray.data.results;
+    //  console.log(moviesDataforMarkupCreator)
     totalResults = moviesDataArray.data.total_results;
-   
+  
 
     localStorage.setItem(
       'currentPopularMovies',
@@ -47,7 +48,7 @@ export async function fetchPopularMovies(pagePaginationNumber = 1) {
       paginator.pagination.on('afterMove', paginatePage);
     renderMarkupMovieCard(moviesDataforMarkupCreator);
     findLi();
-    return moviesDataforMarkupCreator;
+    // return moviesDataforMarkupCreator;
   } catch (error) {
     console.log(error);
   }
@@ -61,7 +62,8 @@ function clearGalleryMarkup() {
 // let responce; 
 
  function paginatePage(event) {
-  const currentPage = event.page;
+   const currentPage = event.page;
+  //  console.log(event)
 // paginator.pagination._currentPage = currentPage;
   fetchPopularMovies(currentPage);
   // responce = await fetchPopularMovies(currentPage);
