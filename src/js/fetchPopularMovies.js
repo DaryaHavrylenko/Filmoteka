@@ -6,18 +6,11 @@ import findLi from './openModal';
 import Pagination from 'tui-pagination';
 import FilmsPagination from './pagination-again';
 
-
 const axios = require('axios').default;
-
 
 const gallery = document.querySelector('.gallery');
 const API_KEY = '301d018a3b09052968e9ce18b1793bab';
 const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=';
-
-
-let moviesDataforMarkupCreator;
-let paginator;
-
 
 let moviesDataforMarkupCreator;
 let paginator;
