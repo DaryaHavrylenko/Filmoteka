@@ -4,11 +4,12 @@ import findLi from './openModal';
 import delay, { visibleSpinner, hideSpinner } from './delay';
 import axios from 'axios';
 
-import FilmsPagination from './pagination-again';
-import Pagination from 'tui-pagination';
+
+
 
 const gallery = document.querySelector('.gallery');
 const searchForm = document.querySelector('.search__form');
+
 searchForm.addEventListener('submit', onInput);
 
 const container = document.getElementById('pagination');
@@ -16,6 +17,7 @@ const container = document.getElementById('pagination');
 let filmsSearch;
 let paginator;
 let movieName;
+
 
 const url = `https://api.themoviedb.org/3/search/movie?`;
 
@@ -40,8 +42,10 @@ async function onInput(event) {
       return;
     }
     searchParams.set('query', movieName);
+
     const results = await fetchMovie(filmsSearch);
     console.log(results);
+
     // ???? записываем занчение текущего поиска в local storage для отслеживания разметки при скролле
     // localStorage.setItem('searchQuery', JSON.stringify(results));
     // if (results.page === 1) {
@@ -49,8 +53,10 @@ async function onInput(event) {
     // }
     clearGalleryMarkup();
 
+
     paginator = new FilmsPagination(filmsSearch, total_results);
     paginator.pagination.on('afterMove', paginatePage);
+
 
     renderMarkupMovieCard(results);
     updateLocalStorage(results);
@@ -64,6 +70,7 @@ function getQuery() {
   return searchForm.elements[0].value.trim();
 }
 
+
 async function paginatePage(event) {
   
   const currentPage = event.page;
@@ -73,6 +80,7 @@ async function paginatePage(event) {
   renderMarkupMovieCard(responce);
   console.log(paginator);
 }
+
 
 let total_results;
 
@@ -91,6 +99,8 @@ async function fetchMovie(page) {
     searchForm.elements[0].value = '';
   }
   const { results } = data;
+
+
   total_results = data.total_results;
   return results;
 }

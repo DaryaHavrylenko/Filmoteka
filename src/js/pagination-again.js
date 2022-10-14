@@ -1,5 +1,7 @@
+
 import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
+
 export default class FilmsPagination {
   constructor(filmsSearchInstance, totalItems) {
     this.filmsSearchInstance = filmsSearchInstance;
@@ -31,4 +33,6 @@ export default class FilmsPagination {
     };
     this.pagination = new Pagination('pagination', this.options);
   }
+
 }
+
