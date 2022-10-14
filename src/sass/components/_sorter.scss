@@ -88,11 +88,11 @@
 
 
 .sorted-btn:hover {
-  background-color: #ff6b08;
+  background-color: var(--accent-color);
 }
 
 .tag.highlight{
-  background-color: #7f7e7e;
+  background-color: var(--accent-color);
 }
 .tag.clear-btn{
   background-color: orangered;
@@ -235,7 +235,7 @@
   z-index: 15;
   display: none;
   position: absolute;
-  background-color: #eee;
+  background-color: rgb(138, 128, 128);
   box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.4);
   border-radius: 0 0 15px 15px;
 }
