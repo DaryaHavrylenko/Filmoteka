@@ -3,7 +3,7 @@ import renderMarkupMovieCard from './markapTempllate';
 import findLi from './openModal';
 import delay, { visibleSpinner, hideSpinner } from './delay';
 import axios from 'axios';
-
+import FilmsPagination from './pagination-again';
 
 
 
