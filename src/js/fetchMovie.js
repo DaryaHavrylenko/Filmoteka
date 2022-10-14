@@ -4,25 +4,18 @@ import renderMarkupMovieCard from './markapTempllate';
 import findLi from './openModal';
 import delay, { visibleSpinner, hideSpinner } from './delay';
 import axios from 'axios';
-
+import FilmsPagination from './pagination-again';
 import Pagination from 'tui-pagination';
 
-const container = document.getElementById('pagination');
 const gallery = document.querySelector('.gallery');
-
-const options = {
-  totalItems: 0,
-  itemsPerPage: 20,
-  visiblePages: 5,
-  page: 1,
-};
-
-const pagination = new Pagination(container, options);
-const paginPage = pagination.getCurrentPage();
-
 const searchForm = document.querySelector('.search__form');
+const container = document.getElementById('pagination');
 
 searchForm.addEventListener('submit', onInput);
+
+let filmsSearch;
+let paginator;
+let movieName;   
 
 const url = `https://api.themoviedb.org/3/search/movie?`;
 
@@ -41,21 +34,27 @@ async function onInput(event) {
     //    event.preventDefault();
     //  }
     event.preventDefault();
-    const movieName = getQuery();
+    movieName = getQuery();
     if (!movieName) {
       Notify.failure('Please enter the movie name');
       return;
     }
     searchParams.set('query', movieName);
 
-    const results = await fetchMovie(paginPage);
-
+    const results = await fetchMovie(filmsSearch);
+console.log(results)
     // ???? записываем занчение текущего поиска в local storage для отслеживания разметки при скролле
     // localStorage.setItem('searchQuery', JSON.stringify(results));
     // if (results.page === 1) {
     //   clearGalleryMarkup();
     // }
     clearGalleryMarkup();
+    paginator = new FilmsPagination(
+        filmsSearch,
+      total_results
+    );
+    console.log(paginator)
+paginator.pagination.on('afterMove', paginatePage);
     renderMarkupMovieCard(results);
     updateLocalStorage(results);
     findLi();
@@ -68,18 +67,20 @@ function getQuery() {
   return searchForm.elements[0].value.trim();
 }
 
-pagination.on('afterMove', updatePagination);
 
-async function updatePagination(event) {
+async function paginatePage(event) {
   const currentPage = event.page;
-  console.log('currentPage внизу', currentPage);
-
-  const results = await fetchMovie(currentPage); //?????????????????
+  filmsSearch = movieName;
   clearGalleryMarkup();
-  renderMarkupMovieCard(results);
-  updateLocalStorage(results);
-  findLi();
+ 
+  const responce = await fetchMovie(currentPage);
+
+ renderMarkupMovieCard(responce);
+ console.log(paginator)
 }
+
+
+let total_results;
 
 async function fetchMovie(page) {
   visibleSpinner();
@@ -96,11 +97,12 @@ async function fetchMovie(page) {
     Notify.failure('Search result is not successful. Please, try again');
     searchForm.elements[0].value = '';
   }
-  const { results, total_results } = data;
-  pagination.reset(total_results);
-
+  const { results } = data;
+ 
+  total_results = data.total_results;
   return results;
 }
+
 function clearGalleryMarkup() {
   gallery.innerHTML = '';
 }
