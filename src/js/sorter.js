@@ -85,6 +85,7 @@ const genres = [
     name: 'Western',
   },
 ];
+
 const main = document.getElementById('main');
 const form = document.querySelector('.search__form');
 const search = document.querySelector('.search__field');
@@ -105,7 +106,6 @@ setGenre();
 // let  prevPage = 3;
 // let  lastUrl = '';
 // let  totalPages = 100;
-// setGenre();
 
 
 
@@ -118,7 +118,7 @@ function setGenre() {
     t.classList.add('tag');
     t.id = genre.id;
     t.innerText = genre.name;
-    // tagsEl.append(t);
+    tagsEl.append(t);
     // console.log(tagsEl);
 
     //по клику проверяем
