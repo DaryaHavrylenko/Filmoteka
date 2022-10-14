@@ -7,6 +7,7 @@ import './js/addToWatchedBtn';
 import './js/theme';
 import './js/openModal';
 import './js/scroll';
+import './js/sorter';
 // import { renderQueueMarkup } from './js/renderQueueMarkup';
 // import './js/renderQueueMarkup';
 
