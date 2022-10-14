@@ -91,6 +91,8 @@ const search = document.querySelector('.search__field');
 
 const tagsEl = document.getElementById('tags');
 let selectedGenre = []
+setGenre();
+// genresBtn.addEventListener('click', setGenre);
 
 
 //*pagination parameters
@@ -337,7 +339,6 @@ document.onclick = function (event) {
     }
   }
 };
-genresBtn.addEventListener('click', setGenre);
 
 
 
