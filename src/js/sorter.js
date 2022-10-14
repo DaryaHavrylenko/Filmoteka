@@ -85,6 +85,7 @@ const genres = [
     name: 'Western',
   },
 ];
+
 const main = document.getElementById('main');
 const form = document.querySelector('.search__form');
 const search = document.querySelector('.search__field');
@@ -105,7 +106,6 @@ setGenre();
 // let  prevPage = 3;
 // let  lastUrl = '';
 // let  totalPages = 100;
-// setGenre();
 
 
 
