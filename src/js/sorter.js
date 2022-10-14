@@ -160,7 +160,7 @@ function clearBtn(){
   }else{
           //формируем кнопку Clear
       let clear = document.createElement('div');
-      clear.classList.add('tag','highlight');
+      clear.classList.add('tag','highlight', 'clear-btn');
       clear.id = 'clear';
       clear.innerText = 'Clear All';
       clear.addEventListener('click', () => {

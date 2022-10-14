@@ -44,15 +44,7 @@
   // }
 }
 
-.tag{
-  color:white;
-  padding:10px 20px;
-  background-color: orange;
-  border-radius: 50px;
-  margin:5px;
-  display:inline-block;
-  cursor: pointer;
-}
+
 
 .sorted-btn {
   // position: relative;
@@ -92,7 +84,10 @@
 }
 
 .tag.highlight{
-  background-color: red;
+  background-color: #7f7e7e;
+}
+.tag.clear-btn{
+  background-color: orangered;
 }
 .no-results{
   color:white;
@@ -240,13 +235,18 @@
 .tag{
   z-index: 11;
   color: black;
-  padding: 12px 16px;
+    letter-spacing: .5px;
+    align-items: center;
+  // padding: 12px 16px;
   text-decoration: none;
   display: block;
-  background-color:var(--second-bg-color);
+  margin-bottom: 5px;
+  padding:5px 5px;
+ border-radius: 5px;
   cursor: pointer;
   width: 165.422px;
 }
+
 /* Change color of dropdown links on hover */
 .tag:hover {
   background-color: orangered;
