@@ -180,7 +180,7 @@ function clearBtn(){
 
 function getMovies(url) {
   //получаем фильмы по URL из библиотеки
-  lastUrl = url;
+  // lastUrl = url;
   fetch(url)
     .then(res => res.json())
     .then(data => {
