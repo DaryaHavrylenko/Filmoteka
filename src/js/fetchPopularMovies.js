@@ -3,29 +3,24 @@ import renderMarkupMovieCard from './markapTempllate';
 import './openModal';
 import findLi from './openModal';
 import Pagination from 'tui-pagination';
+import FilmsPagination from './pagination-again';
+
 
 const axios = require('axios').default;
 
-const container = document.getElementById('pagination');
+
 const gallery = document.querySelector('.gallery');
 
 const API_KEY = '301d018a3b09052968e9ce18b1793bab';
 const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=';
 
-const options = {
-  totalItems: 0,
-  itemsPerPage: 20,
-  visiblePages: 5,
-  page: 1,
-};
 
-const pagination = new Pagination(container, options);
-const pagePaginationNumber = pagination.getCurrentPage();
-console.log(pagePaginationNumber);
-
+let moviesDataforMarkupCreator;
+let paginator;
 export async function fetchPopularMovies(pagePaginationNumber = 1) {
   console.log(pagePaginationNumber);
   try {
+    console.log(`${BASE_URL}${API_KEY}&page=${pagePaginationNumber}`)
     const moviesDataArray = await axios.get(
       `${BASE_URL}${API_KEY}&page=${pagePaginationNumber}`
     );
@@ -34,9 +29,9 @@ export async function fetchPopularMovies(pagePaginationNumber = 1) {
       return;
     }
 
-    const moviesDataforMarkupCreator = moviesDataArray.data.results;
-    const totalResults = moviesDataArray.data.total_results;
-    pagination.reset(totalResults);
+    moviesDataforMarkupCreator = moviesDataArray.data.results;
+    totalResults = moviesDataArray.data.total_results;
+   
 
     localStorage.setItem(
       'currentPopularMovies',
@@ -44,22 +39,31 @@ export async function fetchPopularMovies(pagePaginationNumber = 1) {
     );
 
     clearGalleryMarkup();
+         paginator = new FilmsPagination(
+        null,
+           totalResults
+        
+      );
+      paginator.pagination.on('afterMove', paginatePage);
     renderMarkupMovieCard(moviesDataforMarkupCreator);
     findLi();
+    return moviesDataforMarkupCreator;
   } catch (error) {
     console.log(error);
   }
 }
 
+
 function clearGalleryMarkup() {
   gallery.innerHTML = '';
 }
 
-pagination.on('afterMove', updatePage);
+// let responce; 
 
-async function updatePage(event) {
+ function paginatePage(event) {
   const currentPage = event.page;
-  console.log('currentPage', currentPage);
-
-  await fetchPopularMovies(currentPage);
+// paginator.pagination._currentPage = currentPage;
+  fetchPopularMovies(currentPage);
+  // responce = await fetchPopularMovies(currentPage);
+ // renderMarkupMovieCard(responce);
 }
