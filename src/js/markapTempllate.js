@@ -6,7 +6,6 @@ export default function renderMarkupMovieCard(data) {
   const genre = JSON.parse(localStorage.getItem('genresDataArray'));
 
   const markup = data
-
     .map(
       ({ id, poster_path, genre_ids, title, release_date, vote_average }) => {
         let gen = genre_ids.reduce((acc, item) => {
@@ -18,12 +17,12 @@ export default function renderMarkupMovieCard(data) {
           });
           return acc;
         }, []);
+
         const genres = [...gen];
         if (genres.length > 2) genres.splice(2);
         if (genres.length === 2) genres.push(`  Other`);
         // console.log(genres);
         if (release_date === 0 || release_date === undefined) release_date = '';
-        // console.log(genres);
         return `<li class="gallery__item" >
                
                 <div class="movie-card" id="${id}">

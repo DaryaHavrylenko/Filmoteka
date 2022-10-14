@@ -1,36 +1,57 @@
 .gallery {
-  text-align: center;
+  
+   display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    // margin: -10px;
+  
+     @include mq(tablet) {
+        margin: -16px;}
 
-  @include mq(tablet) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-  }
+  // @include mq(tablet) {
+  //   display: grid;
+  //   grid-template-columns: repeat(2, 1fr);
+  //   grid-template-rows: repeat(10, 1fr);
+  // }
 
-  @include mq(desktop) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-  }
+  // @include mq(desktop) {
+  //   grid-template-columns: repeat(3, 1fr);
+  //   grid-template-rows: repeat(7, 1fr);
+  // }
 }
 
 .gallery__item {
   position: relative;
+  
   margin: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
+
+  @include mq(tablet) {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      width: calc((100% - 4 * 16px) / 2);
+    }
+  
+     @include mq(desktop) {
+      width: calc((100% - 6 * 16px) / 3);
+    }
+       
 
   @include mq(mobile-only) {
     width: 280px;
   }
 
-  @include mq(tablet) {
-    margin: 16px;
-  }
+  // @include mq(tablet) {
+  //   margin: 16px;
+  // }
 
-  @include mq(desktop) {
-    margin: 8px;
-    padding-bottom: 16px;
-  }
+  // @include mq(desktop) {
+  //   margin: 8px;
+  //   padding-bottom: 16px;
+  // }
 
   transition-property: scale;
   transition-duration: 500ms;
@@ -53,6 +74,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.2;
+ 
 
   @include mq(desktop) {
     font-size: 15px;
@@ -121,6 +143,7 @@
 }
 
 .movie-info-title {
+
   margin-bottom: 5px;
   // font-size: inherit;
   font-size: 12px;
@@ -128,6 +151,9 @@
   text-align: left;
   text-transform: uppercase;
   color: var(--title-color);
+  @include mq(tablet) {
+      width: 336px;
+    }
   @media screen and (min-width: $desktop) {
     font-size: 15px;
   }
