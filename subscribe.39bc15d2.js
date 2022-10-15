@@ -1,0 +1,2 @@
+document.querySelector(".button-subscribe__main");const e=document.forms["submit-to-google-sheet"],t=document.getElementById("msg");e.addEventListener("submit",(o=>{o.preventDefault(),fetch("https://script.google.com/macros/s/AKfycbyQOYXGaePRep6FToNSfKqZU2Eut6p_H22MuQstAS5A3IsoWG8UCWkAN-MZEQt7NI-wCw/exec",{method:"POST",body:new FormData(e)}).then((o=>{t.innerHTML="Thank you for subscribing!",setTimeout((()=>{t.innerHTML=""}),5e3),e.reset()})).catch((e=>console.error("Error!",e.message)))}));
+//# sourceMappingURL=subscribe.39bc15d2.js.map
