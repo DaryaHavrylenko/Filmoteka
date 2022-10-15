@@ -8,25 +8,14 @@
   
      @include mq(tablet) {
         margin: -16px;}
-
-  // @include mq(tablet) {
-  //   display: grid;
-  //   grid-template-columns: repeat(2, 1fr);
-  //   grid-template-rows: repeat(10, 1fr);
-  // }
-
-  // @include mq(desktop) {
-  //   grid-template-columns: repeat(3, 1fr);
-  //   grid-template-rows: repeat(7, 1fr);
-  // }
 }
 
 .gallery__item {
   position: relative;
   
   margin: 10px;
-  // margin-left: auto;
-  // margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 
   @include mq(tablet) {
       display: flex;
