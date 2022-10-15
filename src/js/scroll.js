@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', function () {
       // Если прокрутили дальше 599px, показываем кнопку
       if (pageYOffset > 100) {
-          btn.classList.add('show');
+          btn.classList.add('showScroll');
           // Иначе прячем
       } else {
-          btn.classList.remove('show');
+          btn.classList.remove('showScroll');
       }
   });
 
