@@ -2,7 +2,7 @@
   <!-- переключение темы -->
   <!-- <include src="./partials/theme.html"></include> -->
   <div class="header-container">
-    <a class="logo" href="./index.html">
+    <a class="logo" href="./index.html" aria-label="logo">
       <svg class="logo__icon" width="20" height="20">
         <use href="./images/sprite-header.svg#logo"></use>
       </svg>
@@ -23,7 +23,7 @@
         <a
           class="navigation__btn navigation__btn--current"
           href="./index.html"
-          aria-label="navigation"
+          aria-label="navigation home"
           >home</a
         >
       </li>
@@ -31,7 +31,7 @@
         <a
           class="navigation__btn"
           href="./my_library.html"
-          aria-label="navigationBtn"
+          aria-label="navigation my library"
           >my library</a
         >
       </li>
@@ -39,7 +39,7 @@
     <div class="search-container">
       <form class="search__form">
         <input type="text" placeholder="Movie search" class="search__field" />
-        <button type="submit" class="search__btn">
+        <button type="submit" class="search__btn" aria-label="Movie search">
           <svg class="search__icon" width="12" height="12">
             <use href="./images/sprite-header.svg#search"></use>
           </svg>
