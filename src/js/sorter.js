@@ -92,7 +92,7 @@ const search = document.querySelector('.search__field');
 
 const tagsEl = document.getElementById('tags');
 let selectedGenre = []
-setGenre();
+// setGenre();
 // genresBtn.addEventListener('click', setGenre);
 
 
