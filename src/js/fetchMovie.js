@@ -12,12 +12,9 @@ const searchForm = document.querySelector('.search__form');
 
 searchForm.addEventListener('submit', onInput);
 
-const container = document.getElementById('pagination');
-
 let filmsSearch;
 let paginator;
 let movieName;
-
 
 const url = `https://api.themoviedb.org/3/search/movie?`;
 
@@ -44,7 +41,7 @@ async function onInput(event) {
     searchParams.set('query', movieName);
 
     const results = await fetchMovie(filmsSearch);
-    console.log(results);
+    // console.log(results);
 
     // ???? записываем занчение текущего поиска в local storage для отслеживания разметки при скролле
     // localStorage.setItem('searchQuery', JSON.stringify(results));
@@ -53,12 +50,9 @@ async function onInput(event) {
     // }
     clearGalleryMarkup();
 
-
-    paginator = new FilmsPagination(filmsSearch, total_results);
+paginator = new FilmsPagination(filmsSearch, total_results);
     paginator.pagination.on('afterMove', paginatePage);
-
-
-    renderMarkupMovieCard(results);
+renderMarkupMovieCard(results);
     updateLocalStorage(results);
     findLi();
   } catch (error) {
@@ -72,13 +66,14 @@ function getQuery() {
 
 
 async function paginatePage(event) {
-  
   const currentPage = event.page;
   filmsSearch = movieName;
   clearGalleryMarkup();
   const responce = await fetchMovie(currentPage);
   renderMarkupMovieCard(responce);
-  console.log(paginator);
+   updateLocalStorage(responce);
+  // console.log(paginator);
+  findLi();
 }
 
 

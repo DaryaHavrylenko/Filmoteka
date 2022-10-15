@@ -15,10 +15,10 @@ const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=';
 let moviesDataforMarkupCreator;
 let paginator;
 export async function fetchPopularMovies(pagePaginationNumber = 1) {
-  console.log(pagePaginationNumber);
+  // console.log(pagePaginationNumber);
   try {
 
-    console.log(`${BASE_URL}${API_KEY}&page=${pagePaginationNumber}`);
+    // console.log(`${BASE_URL}${API_KEY}&page=${pagePaginationNumber}`);
 
     const moviesDataArray = await axios.get(
       `${BASE_URL}${API_KEY}&page=${pagePaginationNumber}`
@@ -49,19 +49,29 @@ export async function fetchPopularMovies(pagePaginationNumber = 1) {
 }
 
 
+
 function clearGalleryMarkup() {
   gallery.innerHTML = '';
 }
 
 
 // let responce;
-function paginatePage(event) {
+async function paginatePage(event) {
   const currentPage = event.page;
-  //  console.log(event)
-  // paginator.pagination._currentPage = currentPage;
-  fetchPopularMovies(currentPage);
+   const moviesDataArray = await axios.get(
+      `${BASE_URL}${API_KEY}&page=${currentPage}`
+  );
+  
+   moviesDataforMarkupCreator = moviesDataArray.data.results;
+    localStorage.setItem(
+      'currentPopularMovies',
+      JSON.stringify(moviesDataforMarkupCreator)
+    );
+ 
+  clearGalleryMarkup()
   // responce = await fetchPopularMovies(currentPage);
-  // renderMarkupMovieCard(responce);
+  renderMarkupMovieCard(moviesDataforMarkupCreator);
+   findLi();
 }
 
 // --------------------------------------------------------------------------------------

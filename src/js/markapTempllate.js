@@ -1,5 +1,5 @@
 import fetchTrailers from './fetchTrailer';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 export default function renderMarkupMovieCard(data) {
   const gallery = document.querySelector('.gallery');
 
@@ -62,9 +62,12 @@ const gallery = document.querySelector('.gallery');
 
 gallery.addEventListener('click', onYoutubeClick);
 
+const body = document.querySelector('body'); 
+let closeModalBtn;
+let backdrop;
 async function onYoutubeClick(evt) {
   evt.preventDefault();
-  console.log(evt);
+  // console.log(evt);
   if (evt.target.nodeName === 'BUTTON') {
     // refs.youTubeBackdrop.classList.remove('visually-hidden');
     // refs.btnAnchorEl.classList.add('btn_anchor-hidden');
@@ -73,33 +76,36 @@ async function onYoutubeClick(evt) {
     const response = await fetchTrailers(filmId);
     if (response.length >= 1) {
       createIframe(response[0].key);
-      console.log('df', response[0].key);
+      // console.log('df', response[0].key);
     } else if (!response.length) {
       Notify.warning('There are no trailers for this movie');
       refs.youTubeBackdrop.classList.add('visually-hidden');
       refs.bodyEl.classList.remove('no-scroll');
-      console.log('df', response[0].key);
+      // console.log('df', response[0].key);
       return;
     }
     window.addEventListener('keydown', onKeyDownEscModalClose);
-    const body = document.querySelector('body');
+    // const body = document.querySelector('body');
     body.style.overflow = 'hidden';
-    const backdrop = document.querySelector('.backdrop-trailer');
+    
     backdrop.addEventListener('click', onClickBackdrModalClose);
   }
 }
+
+// console.log(closeModalBtn, backdrop, body)
 
 function createIframe(results) {
   const iframe = `<div class="backdrop-trailer"><div class="modal-trailer"><button class="close-modal__trailer">X</button>
   <iframe class="iframe" fullscreen src="https://www.youtube.com/embed/${results}" frameborder="0"></iframe>
   </div></div>`;
   document.body.insertAdjacentHTML('beforeend', iframe);
-  const closeModalBtn = document.querySelector('.close-modal__trailer');
+ closeModalBtn = document.querySelector('.close-modal__trailer');
+backdrop = document.querySelector('.backdrop-trailer');
   closeModalBtn.addEventListener('click', closeModalYouTube);
 }
 
 function closeModalYouTube() {
-  const body = document.querySelector('body');
+
   document.querySelector('.backdrop-trailer').remove();
   window.removeEventListener('keydown', onKeyDownEscModalClose);
   body.style.overflow = '';
