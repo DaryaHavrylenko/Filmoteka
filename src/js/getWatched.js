@@ -19,7 +19,7 @@ export default function getWatched() {
     clear();
     // return refs.ul.insertAdjacentHTML(
     //   'afterbegin',
-    const title = `<h1 class="title-queue">Your queue is empty</h1>
+    const title = `<h1 class="title-queue">Your list is empty</h1>
     <ul class="gallery gallery--library"></ul>`;
     const container = document.querySelector('.container');
     const section = document.querySelector('.gallery-section');
@@ -31,7 +31,8 @@ export default function getWatched() {
   titleEl?.remove();
   const section = document.querySelector('.gallery-section');
   section?.classList.remove('library-plug');
-  clear();
+  // clear();
+  document.querySelector('.gallery').innerHTML = "";
   const arrayFilms = JSON.parse(fromLS);
   arrayFilms.reverse();
   renderMarkupMovieCard(arrayFilms);
