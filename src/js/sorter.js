@@ -92,8 +92,8 @@ const search = document.querySelector('.search__field');
 
 const tagsEl = document.getElementById('tags');
 let selectedGenre = []
-setGenre();
-// genresBtn.addEventListener('click', setGenre);
+// setGenre();
+genresBtn.addEventListener('click', setGenre);
 
 
 //*pagination parameters
