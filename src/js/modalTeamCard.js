@@ -1,23 +1,9 @@
-// let opModalTeam = document.querySelector(".opModalTeam");
-// let closeModalTeam = document.querySelector(".modalTeam__button");
-// let modalTeam = document.querySelector(".modalTeam");
-
-
-// opModalTeam .addEventListener("click", () => {
-//   modalTeam.classList.toggle("active");
-// });
-
-// closeModalTeam.addEventListener("click", () => {
-//   modalTeam.classList.remove("active");
-// });
-
 
 const refs = {
   openModalBtn: document.querySelector('[data-modal-open-contacts]'),
     closeModalBtn: document.querySelector('[data-modal-close-contacts]'),
   backdrop: document.querySelector('.backdrop__modal'),
-//   isHiddenBtn: document.querySelector('.button-subscribe__main'),
-// isHiddenLink: document.querySelector('.button-subscribe__pulse'),
+
   
 };
 
