@@ -9,7 +9,6 @@ import './js/openModal';
 import './js/scroll';
 import './js/subscribe';
 
-// import './js/sorter';
 // import { renderQueueMarkup } from './js/renderQueueMarkup';
 // import './js/renderQueueMarkup';
 
