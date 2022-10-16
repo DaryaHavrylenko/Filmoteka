@@ -11,8 +11,10 @@ body.light-theme {
   }
   
   body.dark-theme {
-    background-color: #333333;
+    // background-color: #333333;
     color: #fff;
+background-color: #000000;
+  background-image: linear-gradient(255deg, #000000 0%, #2b0000 56%, #000b1e 100%);
   }
   
 //   .toolbar {

@@ -18,7 +18,7 @@ refs.backdrop.addEventListener('click', onClickBackdrop);
 
 
 function onOpenModal() {
-  console.log("DONE");
+  // console.log("DONE");
   // refs.isHiddenBtn.classList.add('.is-hidden-btn');
   // refs.isHiddenLink.classList.add('.is-hidden-btn');
   refs.backdrop.classList.remove('is-hidden');

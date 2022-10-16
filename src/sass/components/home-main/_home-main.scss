@@ -20,12 +20,7 @@
   //   grid-template-rows: repeat(7, 1fr);
   // }
 }
-.gallery-section {
-  .dark-theme & {
-  background-color: #430d06;
-    background-image: linear-gradient(225deg, #430d06 0%, #0f0303 89%);
-    }
-}
+
 .gallery__item {
   position: relative;
   
