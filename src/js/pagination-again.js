@@ -8,7 +8,7 @@ export default class FilmsPagination {
     this.options = {
       totalItems: totalItems,
       itemsPerPage: 20,
-      visiblePages: 5,
+      visiblePages: 4,
       page: 1,
       centerAlign: true,
       firstItemClassName: 'tui-first-child',
