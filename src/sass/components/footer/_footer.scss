@@ -8,6 +8,7 @@
 
 //==== Footer styles======// 
 .footer {
+  position: relative;
   background-color: var(--second-bgc);
 }
 .footer__holder {
@@ -322,4 +323,9 @@
 //   // visibility: hidden;
 //   // pointer-events: none;
 //   // }
-  
+  .button-subscribe__main{
+    position: absolute;
+     top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

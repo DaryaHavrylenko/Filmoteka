@@ -20,24 +20,32 @@
     </a>
     <ul class="navigation">
       <li class="navigation__item">
-        <a class="navigation__btn navigation__btn--current" href="./index.html"
+        <a
+          class="navigation__btn navigation__btn--current"
+          href="./index.html"
+          aria-label="navigationHome"
           >home</a
         >
       </li>
       <li class="navigation__item">
-        <a class="navigation__btn" href="./my_library.html">my library</a>
+        <a
+          class="navigation__btn"
+          href="./my_library.html"
+          aria-label="navigationMyLibrary"
+        >
+          my library</a
+        >
       </li>
     </ul>
     <div class="search-container">
       <form class="search__form">
         <input type="text" placeholder="Movie search" class="search__field" />
-        <button type="submit" class="search__btn">
+        <button type="submit" class="search__btn" aria-label="MovieSearch">
           <svg class="search__icon" width="12" height="12">
             <use href="./images/sprite-header.svg#search"></use>
           </svg>
         </button>
       </form>
-      <!-- <include src="./partials/sorter.html"></include> -->
       <include src="./partials/theme.html"></include>
     </div>
   </div>
