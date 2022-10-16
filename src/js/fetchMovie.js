@@ -4,8 +4,7 @@ import findLi from './openModal';
 import delay, { visibleSpinner, hideSpinner } from './delay';
 import axios from 'axios';
 import FilmsPagination from './pagination-again';
-
-
+import { fetchPopularMovies } from './fetchPopularMovies';
 
 const gallery = document.querySelector('.gallery');
 const searchForm = document.querySelector('.search__form');
@@ -28,10 +27,6 @@ const searchParams = new URLSearchParams({
 
 async function onInput(event) {
   try {
-    // отменяем превент дефолт только при первом поиске при скролле
-    //  if (searchParams.get('page') === 1) {
-    //    event.preventDefault();
-    //  }
     event.preventDefault();
     movieName = getQuery();
     if (!movieName) {
@@ -40,19 +35,13 @@ async function onInput(event) {
     }
     searchParams.set('query', movieName);
 
-    const results = await fetchMovie(filmsSearch);
-    // console.log(results);
+    const results = await fetchMovie((page = 1));
 
-    // ???? записываем занчение текущего поиска в local storage для отслеживания разметки при скролле
-    // localStorage.setItem('searchQuery', JSON.stringify(results));
-    // if (results.page === 1) {
-    //   clearGalleryMarkup();
-    // }
     clearGalleryMarkup();
 
-paginator = new FilmsPagination(filmsSearch, total_results);
+    paginator = new FilmsPagination(filmsSearch, total_results);
     paginator.pagination.on('afterMove', paginatePage);
-renderMarkupMovieCard(results);
+    renderMarkupMovieCard(results);
     updateLocalStorage(results);
     findLi();
   } catch (error) {
@@ -64,18 +53,15 @@ function getQuery() {
   return searchForm.elements[0].value.trim();
 }
 
-
 async function paginatePage(event) {
   const currentPage = event.page;
   filmsSearch = movieName;
   clearGalleryMarkup();
   const responce = await fetchMovie(currentPage);
   renderMarkupMovieCard(responce);
-   updateLocalStorage(responce);
-  // console.log(paginator);
+  updateLocalStorage(responce);
   findLi();
 }
-
 
 let total_results;
 
@@ -83,7 +69,7 @@ async function fetchMovie(page) {
   visibleSpinner();
   searchParams.set('page', page);
   const { data } = await axios.get(`${url}${searchParams}`);
-  
+
   // для красивого спинера
   delay(500).then(() => {
     hideSpinner();
@@ -92,9 +78,9 @@ async function fetchMovie(page) {
   if (data.total_results === 0) {
     Notify.failure('Search result is not successful. Please, try again');
     searchForm.elements[0].value = '';
+    fetchPopularMovies();
   }
   const { results } = data;
-
 
   total_results = data.total_results;
   return results;
@@ -222,6 +208,8 @@ function updateLocalStorage(results) {
 //   localStorage.setItem('currentPopularMovies', JSON.stringify(results));
 // }
 
+// -----------------------------------------------------------------------------------
+//  версия на fetch
 // -----------------------------------------------------------------------------------
 
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
