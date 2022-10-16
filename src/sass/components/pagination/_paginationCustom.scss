@@ -14,10 +14,15 @@
 
 .tui-pagination {
   height: 28px;
-  margin: 14px 0 12px;
+
   line-height: normal;
   text-align: center;
   font-size: 0;
+margin-top: 40px;
+
+@include mq(tablet) {
+  margin-top: 60px;
+}
  
 }
 .tui-pagination .tui-page-btn {
