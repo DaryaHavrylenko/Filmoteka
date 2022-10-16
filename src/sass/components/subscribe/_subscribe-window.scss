@@ -1,23 +1,28 @@
 .subscribe__wrapper {
-  min-height: 100vh;
-  color: #000;
-  font-family: 'Muli', sans-serif;
-  font-size: 1rem;
-  background-color: #b9b7b7;
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(193, 191, 191, 0.9);
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 11;
 }
 
-.subscribe__wrapper.is-hidden, .subscribe__btn.is-hidden { 
+.subscribe__wrapper.is-hidden-subscribe {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
+.subscribe__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .subscribe__container {
- 
   background-color: #fff;
   padding: 1em;
   border-radius: 1em;
@@ -32,11 +37,12 @@
   overflow: hidden;
   padding: 0;
 }
+
 .subscribe__img {
   height: 200px;
   overflow: hidden;
   position: relative;
-  
+
   /* margin-bottom: 1.5em; */
 }
 
@@ -66,11 +72,13 @@
   margin-bottom: 0.9em;
   margin-top: 2.3em;
   font-weight: 700;
+  color: var(--title-color);
 }
 .subscribe__title {
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.9em;
+  color: var(--title-color);
 }
 
 .subscribe__input {
@@ -114,7 +122,8 @@
   text-transform: uppercase;
 }
 
-.subscribe__btn:hover, .subscribe__btn:focus{
+.subscribe__btn:hover,
+.subscribe__btn:focus {
   background-color: #de6f1a;
 }
 /* .text {
@@ -129,12 +138,11 @@
   margin: 0;
   color: #656565;
 } */
-.subscribe__span{
+.subscribe__span {
   color: rgb(80, 172, 89);
   display: block;
   margin-bottom: 10px;
 }
-
 
 @keyframes pulse {
   0% {
@@ -151,26 +159,24 @@
   }
 }
 
-
-  .subscribe__close {
-    color: rgb(93, 90, 90);
-    height: 42px;
-    text-transform: uppercase;
-    cursor: pointer;
-    background: none;
-    border: none;
-    outline: none;
-    padding: 4px 10px;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    transition: all .3s;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 15;
-  }
-
+.subscribe__close {
+  color: rgb(93, 90, 90);
+  height: 42px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 4px 10px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  transition: all 0.3s;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 15;
+}
 
 .subscribe__close:hover,
 .subscribe__close:focus {

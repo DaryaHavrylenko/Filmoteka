@@ -252,74 +252,74 @@
 }
 
 
-//*   button-subscribe    
+// //*   button-subscribe    
 
 
-.button-subscribe__main {
-  display: inline-flex;
-  margin-top: 15px;
-  z-index: 9;
-  align-items: center;
-  background: var(--main-accent-color);
-  box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
-  border-radius: 10px;
-  height: 45px;
-  padding: 0 30px;
-  color: #fff;
-  font-family: Lato, Arial, sans-serif;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background .3s, transform .3s, box-shadow .3s;
-   will-change: transform;
+// .button-subscribe__main {
+//   display: inline-flex;
+//   margin-top: 15px;
+//   z-index: 9;
+//   align-items: center;
+//   background: var(--main-accent-color);
+//   box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
+//   border-radius: 10px;
+//   height: 45px;
+//   padding: 0 30px;
+//   color: #fff;
+//   font-family: Lato, Arial, sans-serif;
+//   text-transform: uppercase;
+//   text-decoration: none;
+//   transition: background .3s, transform .3s, box-shadow .3s;
+//    will-change: transform;
 
   
-}
-.button-subscribe__main:hover {
-  background: darken(#ed8349,10%);
-  box-shadow: 0 4px 17px rgba(0,0,0,0.2);
-  transform: translate3d(0, -2px, 0);
-}
-.button-subscribe__main:active {
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
-  transform: translate3d(0, 1px, 0);
-}
+// }
+// .button-subscribe__main:hover {
+//   background: darken(#ed8349,10%);
+//   box-shadow: 0 4px 17px rgba(0,0,0,0.2);
+//   transform: translate3d(0, -2px, 0);
+// }
+// .button-subscribe__main:active {
+//   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+//   transform: translate3d(0, 1px, 0);
+// }
 
-.button-subscribe__pulse {
-  position: relative;
-  color: #fff;
-  font-family: Lato, Arial, sans-serif;
-  text-transform: uppercase;
-  text-decoration: none;
-}
+// .button-subscribe__pulse {
+//   position: relative;
+//   color: #fff;
+//   font-family: Lato, Arial, sans-serif;
+//   text-transform: uppercase;
+//   text-decoration: none;
+// }
 
-.button-subscribe__pulse:before, .button-subscribe__pulse:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255,255,255,.4);
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    opacity: 0;
-    margin: auto;
-  }
+// .button-subscribe__pulse:before, .button-subscribe__pulse:after {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: rgba(255,255,255,.4);
+//     border-radius: 50%;
+//     width: 20px;
+//     height: 20px;
+//     opacity: 0;
+//     margin: auto;
+//   }
 
-  .button-subscribe__pulse:before {
-    animation: pulse 1.5s infinite linear;
-  }
-  .button-subscribe__pulse:after {
-    animation: pulse 2s .4s infinite linear;
-  }
-  .button-subscribe__pulse:hover:before, .button-subscribe__pulse:hover:after {
-    display: none;
-  }
+//   .button-subscribe__pulse:before {
+//     animation: pulse 1.5s infinite linear;
+//   }
+//   .button-subscribe__pulse:after {
+//     animation: pulse 2s .4s infinite linear;
+//   }
+//   .button-subscribe__pulse:hover:before, .button-subscribe__pulse:hover:after {
+//     display: none;
+//   }
 
-  // .is-hidden-btn{
-  //   opacity: 0;
-  // visibility: hidden;
-  // pointer-events: none;
-  // }
+//   // .is-hidden-btn{
+//   //   opacity: 0;
+//   // visibility: hidden;
+//   // pointer-events: none;
+//   // }
   
