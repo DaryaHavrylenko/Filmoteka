@@ -3,14 +3,14 @@
 
 .button-subscribe__pulse {
   display: inline-flex;
-  margin-top: 15px;
+  // margin-top: 15px;
   z-index: 9;
   align-items: center;
   background: var(--main-accent-color);
   box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
-  border-radius: 10px;
-  height: 45px;
-  padding: 0 30px;
+  border-radius: 7px;
+  height: 35px;
+  padding: 0 20px;
   color: #fff;
   font-family: Lato, Arial, sans-serif;
   text-transform: uppercase;
