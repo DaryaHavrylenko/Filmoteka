@@ -35,7 +35,7 @@ async function onInput(event) {
     }
     searchParams.set('query', movieName);
 
-    const results = await fetchMovie((page = 1));
+    const results = await fetchMovie();
 
     clearGalleryMarkup();
 
@@ -65,7 +65,7 @@ async function paginatePage(event) {
 
 let total_results;
 
-async function fetchMovie(page) {
+async function fetchMovie(page = 1) {
   visibleSpinner();
   searchParams.set('page', page);
   const { data } = await axios.get(`${url}${searchParams}`);
