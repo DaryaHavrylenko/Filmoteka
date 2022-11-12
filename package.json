@@ -2,7 +2,7 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://daryahavrylenko.github.io/Filmoteka/",
+  "homepage": "https://LisLeshy.github.io/Filmoteka/",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /Filmoteka/"
